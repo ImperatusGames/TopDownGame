@@ -1,0 +1,81 @@
+[gd_scene load_steps=14 format=3 uid="uid://db44ncf08m8q8"]
+
+[ext_resource type="Texture2D" uid="uid://bhocepugo503t" path="res://assets/Prototype_Character.png" id="1_8jpns"]
+[ext_resource type="PackedScene" uid="uid://wf6bff4qnd3a" path="res://components/health_component.tscn" id="1_8yvla"]
+[ext_resource type="Script" path="res://enemies/zombie.gd" id="1_iref2"]
+[ext_resource type="PackedScene" uid="uid://dmc68k0gaovro" path="res://components/damage_component.tscn" id="4_dv18j"]
+[ext_resource type="PackedScene" uid="uid://d1bym2dtxelqs" path="res://components/velocity_component.tscn" id="5_vuyby"]
+[ext_resource type="PackedScene" uid="uid://bbkhvvg2yjkrj" path="res://components/hurt_box_component.tscn" id="6_utg2a"]
+[ext_resource type="PackedScene" uid="uid://dfokvs4ctej2r" path="res://components/drop_rate_component.tscn" id="7_krjii"]
+[ext_resource type="PackedScene" uid="uid://cm71qkqjauy36" path="res://assets/xp_coin.tscn" id="8_l1kmi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aa753"]
+atlas = ExtResource("1_8jpns")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7i2w"]
+atlas = ExtResource("1_8jpns")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qeorf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aa753")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7i2w")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2jkis"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hwv0q"]
+radius = 6.0
+
+[node name="Zombie" type="CharacterBody2D" groups=["Enemy"]]
+scale = Vector2(2.5, 2.5)
+collision_layer = 12
+collision_mask = 12
+motion_mode = 1
+script = ExtResource("1_iref2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_qeorf")
+animation = &"walk"
+frame_progress = 0.797568
+
+[node name="HealthComponent" parent="." instance=ExtResource("1_8yvla")]
+unique_name_in_owner = true
+MAX_HEALTH = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_2jkis")
+
+[node name="DamageComponent" parent="." instance=ExtResource("4_dv18j")]
+BASE_DAMAGE_RATE = 1.5
+
+[node name="VelocityComponent" parent="." instance=ExtResource("5_vuyby")]
+unique_name_in_owner = true
+BASE_SPEED = 120.0
+
+[node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("6_utg2a")]
+collision_layer = 12
+collision_mask = 12
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_hwv0q")
+
+[node name="DropRateComponent" parent="." instance=ExtResource("7_krjii")]
+unique_name_in_owner = true
+drop_rate = 50.0
+drop_item = ExtResource("8_l1kmi")
+experience = 1

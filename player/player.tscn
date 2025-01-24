@@ -1,0 +1,82 @@
+[gd_scene load_steps=14 format=3 uid="uid://cs7snk0ujxfjr"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_h321q"]
+[ext_resource type="PackedScene" uid="uid://wf6bff4qnd3a" path="res://components/health_component.tscn" id="1_t2qbt"]
+[ext_resource type="Texture2D" uid="uid://bhocepugo503t" path="res://assets/Prototype_Character.png" id="3_7i35b"]
+[ext_resource type="PackedScene" uid="uid://d1bym2dtxelqs" path="res://components/velocity_component.tscn" id="5_bb5oc"]
+[ext_resource type="PackedScene" uid="uid://bbkhvvg2yjkrj" path="res://components/hurt_box_component.tscn" id="6_5dtbf"]
+[ext_resource type="PackedScene" uid="uid://cc7ijf3m2tx01" path="res://player/weapons/fire_orb.tscn" id="6_hcfog"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpmp7"]
+atlas = ExtResource("3_7i35b")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru1xl"]
+atlas = ExtResource("3_7i35b")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngejn"]
+atlas = ExtResource("3_7i35b")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2n0pm"]
+atlas = ExtResource("3_7i35b")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f2gsr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpmp7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ru1xl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngejn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2n0pm")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wsx8o"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ho3ti"]
+radius = 5.0
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+texture_filter = 1
+scale = Vector2(2, 2)
+script = ExtResource("1_h321q")
+
+[node name="HealthComponent" parent="." instance=ExtResource("1_t2qbt")]
+unique_name_in_owner = true
+MAX_HEALTH = 100
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_f2gsr")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_wsx8o")
+
+[node name="VelocityComponent" parent="." instance=ExtResource("5_bb5oc")]
+unique_name_in_owner = true
+BASE_SPEED = 150.0
+
+[node name="HurtBoxComponent" parent="." instance=ExtResource("6_5dtbf")]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 14
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_ho3ti")
+
+[node name="FireOrb" parent="." instance=ExtResource("6_hcfog")]
