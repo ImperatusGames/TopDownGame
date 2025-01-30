@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cib2trgltqr2v"]
+[gd_scene load_steps=6 format=3 uid="uid://cib2trgltqr2v"]
 
 [ext_resource type="PackedScene" uid="uid://cs7snk0ujxfjr" path="res://player/player.tscn" id="1_jdka2"]
+[ext_resource type="Script" path="res://game.gd" id="1_qu5d8"]
 [ext_resource type="PackedScene" uid="uid://db44ncf08m8q8" path="res://enemies/zombie.tscn" id="2_841bp"]
 [ext_resource type="PackedScene" uid="uid://cm71qkqjauy36" path="res://assets/xp_coin.tscn" id="3_rsvab"]
 [ext_resource type="PackedScene" uid="uid://bpukm82q4ktld" path="res://orb_spawn.tscn" id="4_rxucg"]
 
-[node name="Level" type="Node2D"]
+[node name="Game" type="Node2D"]
+script = ExtResource("1_qu5d8")
 
 [node name="Player" parent="." instance=ExtResource("1_jdka2")]
 position = Vector2(595, 217)
@@ -20,3 +22,8 @@ position = Vector2(241, 465)
 position = Vector2(881, 350)
 
 [node name="OrbSpawn" parent="." instance=ExtResource("4_rxucg")]
+unique_name_in_owner = true
+offset_left = 919.0
+offset_top = 35.0
+offset_right = 1110.0
+offset_bottom = 93.0

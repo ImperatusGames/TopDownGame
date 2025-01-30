@@ -13,10 +13,10 @@ func _physics_process(delta: float) -> void:
 func shoot():
 	const FIREBALL = preload("res://player/weapons/fireball.tscn")
 	var new_fireball = FIREBALL.instantiate()
-	new_fireball.global_position = %ShootingPoint.global_position
-	new_fireball.global_rotation = %ShootingPoint.global_rotation
+	new_fireball.global_position = %FireOrbSprite.global_position
+	new_fireball.global_rotation = %FireOrbSprite.global_rotation
 	new_fireball.damage += damage
-	%ShootingPoint.add_child(new_fireball)
+	%FireOrbSprite.add_child(new_fireball)
 
 func _on_timer_timeout() -> void:
 	shoot()

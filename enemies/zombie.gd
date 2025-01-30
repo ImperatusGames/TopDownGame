@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var player = get_node("/root/Level/Player")
+@onready var player = get_node("/root/Game/Player")
 
 func _ready() -> void:
 	$HealthComponent.health_empty.connect(_on_health_empty)
@@ -8,7 +8,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	var direction = global_position.direction_to(player.global_position)
 	velocity = direction * %VelocityComponent.current_speed
-	move_and_slide()
+	#move_and_slide()
 
 func _on_health_empty():
 	#print("Dead unit")

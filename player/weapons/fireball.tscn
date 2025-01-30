@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cp6gi6r4yrvmd" path="res://icon.svg" id="2_vlb2s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7l6hj"]
-radius = 18.0278
+radius = 16.0
 
 [node name="Fireball" type="Area2D"]
 top_level = true
@@ -14,7 +14,7 @@ collision_mask = 12
 script = ExtResource("1_dxmhq")
 
 [node name="Icon" type="Sprite2D" parent="."]
-scale = Vector2(0.289063, 0.289063)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_vlb2s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
