@@ -60,5 +60,5 @@ func _on_area_entered(area) -> void:
 		attack.attack_damage = damage
 		
 		hurtbox.damage(attack)
-		print("Damage dealt!")
+		#print("Damage dealt!")
 		queue_free()

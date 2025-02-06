@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://bpukm82q4ktld"]
 
 [ext_resource type="Texture2D" uid="uid://df0orqwrq6bsk" path="res://assets/coin_single.png" id="1_6hdxr"]
-[ext_resource type="Script" path="res://orb_spawn.gd" id="1_ovep8"]
+[ext_resource type="Script" path="res://ice_orb_spawn.gd" id="1_ovep8"]
 
-[node name="OrbSpawn" type="VBoxContainer"]
+[node name="IceOrbSpawn" type="VBoxContainer"]
 offset_right = 191.0
 offset_bottom = 58.0
 script = ExtResource("1_ovep8")

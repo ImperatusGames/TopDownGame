@@ -3,6 +3,7 @@ class_name Player
 
 var player_xp : int = 0
 var level : int = 1
+var xp_to_level = 3
 
 #const XP_COIN = preload("res://assets/xp_coin.tscn")
 
@@ -21,11 +22,25 @@ func _process(delta: float) -> void:
 		if enemy.has_node("DamageComponent") == true:
 			damage_rate += enemy.get_node("DamageComponent").current_damage_rate
 			#print("Damage component exists")
-			print(damage_rate)
+			#print(damage_rate)
 			
 	if overlapping_enemies.size() > 0:
 		%HealthComponent.current_health -= damage_rate * delta
-		print(%HealthComponent.current_health)
+		#print(%HealthComponent.current_health)
 
 func on_experience_gain(experience):
 	player_xp += experience
+	get_experience()
+
+func get_experience():
+	if player_xp == xp_to_level:
+		level_up()
+	else:
+		print("XP to level: " + str(xp_to_level - player_xp))
+
+func level_up():
+	player_xp = 0
+	level += 1
+	xp_to_level += 2
+	%HealthComponent.current_health = %HealthComponent.MAX_HEALTH
+	print("Player leveled up to level " + str(level))

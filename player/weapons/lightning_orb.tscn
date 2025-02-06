@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://df0orqwrq6bsk" path="res://assets/coin_single.png" id="2_ol4d8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7tm0h"]
-radius = 177.0
+radius = 175.0
 
 [node name="LightningOrb" type="Area2D"]
 collision_layer = 4
@@ -25,5 +25,5 @@ texture = ExtResource("2_ol4d8")
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 2.0
+wait_time = 1.75
 autostart = true

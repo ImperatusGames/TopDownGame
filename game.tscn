@@ -1,10 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://cib2trgltqr2v"]
+[gd_scene load_steps=10 format=3 uid="uid://cib2trgltqr2v"]
 
 [ext_resource type="PackedScene" uid="uid://cs7snk0ujxfjr" path="res://player/player.tscn" id="1_jdka2"]
 [ext_resource type="Script" path="res://game.gd" id="1_qu5d8"]
 [ext_resource type="PackedScene" uid="uid://db44ncf08m8q8" path="res://enemies/zombie.tscn" id="2_841bp"]
 [ext_resource type="PackedScene" uid="uid://cm71qkqjauy36" path="res://assets/xp_coin.tscn" id="3_rsvab"]
-[ext_resource type="PackedScene" uid="uid://bpukm82q4ktld" path="res://orb_spawn.tscn" id="4_rxucg"]
+[ext_resource type="PackedScene" uid="uid://bpukm82q4ktld" path="res://ice_orb_spawn.tscn" id="4_rxucg"]
+[ext_resource type="PackedScene" uid="uid://bxivxp5tfrojs" path="res://enemies/enemy_spawner.tscn" id="6_hh5lf"]
+[ext_resource type="PackedScene" uid="uid://b4hbonekt2eg4" path="res://fire_orb_spawn.tscn" id="6_rn3pu"]
+[ext_resource type="PackedScene" uid="uid://ds8p1no3jqt6t" path="res://bolt_orb_spawn.tscn" id="7_uwgwt"]
+
+[sub_resource type="Curve2D" id="Curve2D_bimy6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -88.6276, -88.9121, 0, 0, 0, 0, 1266.01, -84.9512, 0, 0, 0, 0, 1267, 731, 0, 0, 0, 0, -88.6276, 728.029, 0, 0, -4.2012, -28.008, -88.6276, -88.9121)
+}
+point_count = 5
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_qu5d8")
@@ -21,9 +30,41 @@ position = Vector2(241, 465)
 [node name="XP Coin" parent="." instance=ExtResource("3_rsvab")]
 position = Vector2(881, 350)
 
-[node name="OrbSpawn" parent="." instance=ExtResource("4_rxucg")]
+[node name="IceOrbSpawn" parent="." instance=ExtResource("4_rxucg")]
 unique_name_in_owner = true
 offset_left = 919.0
 offset_top = 35.0
 offset_right = 1110.0
 offset_bottom = 93.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-12.4982, -7.21085)
+scale = Vector2(1.00986, 1.00986)
+curve = SubResource("Curve2D_bimy6")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+position = Vector2(-88.6276, -88.9121)
+rotation = 0.00292395
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true
+
+[node name="FireOrbSpawn" parent="." instance=ExtResource("6_rn3pu")]
+unique_name_in_owner = true
+offset_left = 956.0
+offset_top = 565.0
+offset_right = 1103.0
+offset_bottom = 623.0
+
+[node name="BoltOrbSpawn" parent="." instance=ExtResource("7_uwgwt")]
+unique_name_in_owner = true
+offset_left = 928.0
+offset_top = 291.0
+offset_right = 1118.0
+offset_bottom = 349.0
+
+[node name="EnemySpawner" parent="." instance=ExtResource("6_hh5lf")]
+enemy = Array[PackedScene]([ExtResource("2_841bp")])

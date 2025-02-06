@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cs7snk0ujxfjr"]
+[gd_scene load_steps=13 format=3 uid="uid://cs7snk0ujxfjr"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_h321q"]
 [ext_resource type="PackedScene" uid="uid://wf6bff4qnd3a" path="res://components/health_component.tscn" id="1_t2qbt"]
 [ext_resource type="Texture2D" uid="uid://bhocepugo503t" path="res://assets/Prototype_Character.png" id="3_7i35b"]
 [ext_resource type="PackedScene" uid="uid://d1bym2dtxelqs" path="res://components/velocity_component.tscn" id="5_bb5oc"]
 [ext_resource type="PackedScene" uid="uid://bbkhvvg2yjkrj" path="res://components/hurt_box_component.tscn" id="6_5dtbf"]
-[ext_resource type="PackedScene" uid="uid://d3etibl6tufl3" path="res://player/weapons/lightning_orb.tscn" id="6_mkvma"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qpmp7"]
 atlas = ExtResource("3_7i35b")
@@ -78,5 +77,3 @@ collision_mask = 14
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_ho3ti")
-
-[node name="LightningOrb" parent="." instance=ExtResource("6_mkvma")]

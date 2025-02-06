@@ -10,7 +10,7 @@ func drop_attempt():
 		return
 
 	var drop_chance = randf() * 100
-	print(drop_chance, "% drop chance")
+	#print(drop_chance, "% drop chance")
 	if drop_chance <= drop_rate:
 		var new_xp_coin = drop_item.instantiate()
 		new_xp_coin.global_position = get_parent().global_position
