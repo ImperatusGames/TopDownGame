@@ -10,7 +10,7 @@ func _ready() -> void:
 	ice_button.pressed.connect(_ice_orb_spawn_pressed)
 	fire_button.pressed.connect(_fire_orb_spawn_pressed)
 	bolt_button.pressed.connect(_bolt_orb_spawn_pressed)
-	%Timer.timeout.connect(_on_timer_timeout)
+	#%Timer.timeout.connect(_on_timer_timeout)
 	
 func _ice_orb_spawn_pressed():
 	const ICE_ORB = preload("res://player/weapons/ice_orb.tscn")
@@ -36,11 +36,11 @@ func _bolt_orb_spawn_pressed():
 	player.add_child(new_orb)
 	print("New Bolt Orb spawned at " + str(new_orb.global_position))
 
-func spawn_mob():
-	var new_mob = preload("res://enemies/zombie.tscn").instantiate()
-	%PathFollow2D.progress_ratio = randf()
-	new_mob.global_position = %PathFollow2D.global_position
-	add_child(new_mob)
-
-func _on_timer_timeout():
-	spawn_mob()
+#func spawn_mob():
+	#var new_mob = preload("res://enemies/zombie.tscn").instantiate()
+	#%PathFollow2D.progress_ratio = randf()
+	#new_mob.global_position = %PathFollow2D.global_position
+	#add_child(new_mob)
+#
+#func _on_timer_timeout():
+	#spawn_mob()
