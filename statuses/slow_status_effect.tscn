@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm1ptdw1hw40d"]
+
+[ext_resource type="Script" path="res://statuses/slow_status_effect.gd" id="1_cv5xl"]
+
+[node name="SlowStatusEffect" type="Node2D"]
+script = ExtResource("1_cv5xl")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 1.5
+one_shot = true

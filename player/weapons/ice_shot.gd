@@ -35,16 +35,6 @@ func _physics_process(delta: float) -> void:
 			#queue_free()
 		#else:
 			#pierce_count += 1
-		#
-	#if body.has_method("take_damage"):
-		#body.take_damage(damage)
-	#
-	#if slow_enabled == true:
-		#if body.has_method("get_slowed"):
-			#var slow_chance = randf()
-			#if slow_chance <= 0.1:
-				#body.get_slowed()
-				#
 	#if freeze_enabled == true:
 		#if body.has_method("get_frozen"):
 			#var freeze_chance = randf()
@@ -59,6 +49,20 @@ func _on_area_entered(area) -> void:
 		var attack = Attack.new()
 		attack.attack_damage = damage
 		
+		if slow_enabled == true:
+			attack.slow = true
+			
+		if freeze_enabled == true:
+			attack.freeze = true
+			
 		hurtbox.damage(attack)
 		#print("Damage dealt!")
 		queue_free()
+
+#func _slow_check(area):
+	#if area.get_parent().get_node("VelocityComponent").slowable == true:
+		#return true
+		#print("true")
+	#else:
+		#return false
+		#print("false")

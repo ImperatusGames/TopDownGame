@@ -3,7 +3,7 @@ extends Area2D
 var upgrade_level = 0
 var pierce_enabled = false
 var max_pierces = 0
-var slow_enabled = false
+var slow_enabled = true
 var freeze_enabled = false
 var damage = 1
 
@@ -28,5 +28,6 @@ func shoot():
 	ice_bullet.damage += damage
 	ice_bullet.global_rotation = %ShootingPoint.global_rotation
 	ice_bullet.global_position = %ShootingPoint.global_position
+	ice_bullet.slow_enabled = slow_enabled
 	%ShootingPoint.add_child(ice_bullet)
 	## Need to connect all of the variables to the newly spawned shot

@@ -64,6 +64,7 @@ BASE_DAMAGE_RATE = 1.5
 [node name="VelocityComponent" parent="." instance=ExtResource("5_vuyby")]
 unique_name_in_owner = true
 BASE_SPEED = 120.0
+slowable = true
 
 [node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("6_utg2a")]
 collision_layer = 12
