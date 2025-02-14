@@ -13,5 +13,12 @@ func _timer_started():
 	print(speed, " is current speed")
 
 func _on_slow_timeout():
-	var speed = get_parent().get_node("VelocityComponent").BASE_SPEED
+	speed = get_parent().get_node("VelocityComponent").BASE_SPEED
 	queue_free()
+
+
+####Rewrite functionality as follows
+# Check if enemy is already slowed status effect instance
+# If not, instantiate slow
+# If it does, restart slow timer
+####

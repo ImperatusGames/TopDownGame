@@ -3,7 +3,7 @@ extends Area2D
 var upgrade_level : int = 1
 var damage : int = 1
 var chain_lightning : bool = true
-var chain_rate : float = 0.5
+var chain_rate : float = 0.75
 var location : Vector2
 
 func _ready() -> void:
