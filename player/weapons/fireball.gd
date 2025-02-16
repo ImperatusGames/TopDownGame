@@ -1,7 +1,9 @@
 extends Area2D
 
-var travelled_distance = 0
-var damage = 1
+var travelled_distance := 0
+var damage := 1
+var explosions := true
+var explosion_damage := 0
 
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)
@@ -26,5 +28,22 @@ func _on_area_entered(area) -> void:
 		attack.attack_damage = damage
 		
 		hurtbox.damage(attack)
-		print("Damage dealt!")
+		
+		if explosions == true:
+			explosion()
+			
+			#var tween = create_tween()
+			#tween.tween_property(new_explosion, "modulate", Color.TRANSPARENT, 1)
+			#tween.tween_callback(new_explosion.queue_free)
+		
+		#print("Damage dealt!")
 		queue_free()
+
+func explosion():
+	const EXPLOSION = preload("res://player/weapons/explosion.tscn")
+	var new_explosion = EXPLOSION.instantiate()
+	new_explosion.damage += explosion_damage
+	new_explosion.global_position = global_position
+	#new_explosion.collision_layer = collision_layer
+	#new_explosion.collision_mask = collision_mask
+	call_deferred("add_sibling", new_explosion)

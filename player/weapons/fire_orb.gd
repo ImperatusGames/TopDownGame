@@ -1,7 +1,8 @@
 extends Area2D
 
-var upgrade_level = 1
-var damage = 0
+var upgrade_level := 1
+var damage := 0
+var explosions := false
 
 func _ready() -> void:
 	$Timer.timeout.connect(_on_timer_timeout)
@@ -15,6 +16,8 @@ func shoot():
 	var new_fireball = FIREBALL.instantiate()
 	new_fireball.global_position = %FireOrbSprite.global_position
 	new_fireball.global_rotation = %FireOrbSprite.global_rotation
+	new_fireball.collision_layer
+	new_fireball.collision_mask
 	new_fireball.damage += damage
 	%FireOrbSprite.add_child(new_fireball)
 
