@@ -13,3 +13,9 @@ func can_be_slowed():
 		return true
 	else:
 		return false
+
+func slowed():
+	current_speed = BASE_SPEED / 2
+	
+func restore_speed():
+	current_speed = BASE_SPEED

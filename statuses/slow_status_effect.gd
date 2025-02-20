@@ -1,21 +1,18 @@
 extends Node2D
 class_name StatusEffect
 
-@onready var speed = get_parent().get_node("VelocityComponent").current_speed
-
 func _ready() -> void:
 	$Timer.timeout.connect(_on_slow_timeout)
-	$timer.start()
-	_timer_started()
-
-func _timer_started():
-	speed = speed / 2
-	print(speed, " is current speed")
+	#get_tree().call_group("Status Effects", "slowed")
+	get_parent().get_node("VelocityComponent").slowed()
 
 func _on_slow_timeout():
-	speed = get_parent().get_node("VelocityComponent").BASE_SPEED
-	queue_free()
+	#get_tree().call_group("Status Effects", "restore_speed")
+	get_parent().get_node("VelocityComponent").restore_speed()
+	call_deferred("queue_free")
 
+func _slow_timer_refresh():
+	%Timer.start(1.5)
 
 ####Rewrite functionality as follows
 # Check if enemy is already slowed status effect instance

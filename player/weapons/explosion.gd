@@ -4,20 +4,20 @@ var damage := 1
 
 func _ready() -> void:
 	%Timer.timeout.connect(_on_timer_timeout)
-	
-	explode()
-	
-func explode():
-	var bodies = get_overlapping_bodies()
-	print(bodies.size(), " bodies in explosion")
-	if bodies.size() > 0:
-		var attack = Attack.new()
-		attack.attack_damage = damage
-		
-		for i in bodies:
-			if bodies[i].has_node("HurtBoxComponent") == true:
-				var hurtbox: HurtBoxComponent = bodies[i].get_node("HurtBoxComponent")
-				hurtbox.damage(attack)
+	%DamageTimer.timeout.connect(_disable_damage_timeout)
+	area_entered.connect(_on_area_entered)
 
 func _on_timer_timeout():
 	queue_free()
+
+func _disable_damage_timeout():
+	area_entered.disconnect(_on_area_entered)
+
+func _on_area_entered(area):
+	if area is HurtBoxComponent:
+		var hurtbox: HurtBoxComponent = area
+		
+		var attack = Attack.new()
+		attack.attack_damage = damage
+		
+		hurtbox.damage(attack)

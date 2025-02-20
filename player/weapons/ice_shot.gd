@@ -51,6 +51,7 @@ func _on_area_entered(area) -> void:
 		
 		if slow_enabled == true:
 			attack.slow = true
+			attack.slow_unit(hurtbox.get_parent())
 			
 		if freeze_enabled == true:
 			attack.freeze = true
