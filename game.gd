@@ -25,8 +25,9 @@ func _fire_orb_spawn_pressed():
 	var new_orb = FIRE_ORB.instantiate()
 	#new_orb.global_position = player.global_position
 	#new_orb.global_rotation = player.global_rotation
-	player.add_child(new_orb)
-	print("New Fire Orb spawned at " + str(new_orb.global_position))
+	player.add_weapon_orb(new_orb)
+	print("Fire Orb button press done")
+	#print("New Fire Orb spawned at " + str(new_orb.global_position))
 
 func _bolt_orb_spawn_pressed():
 	const BOLT_ORB = preload("res://player/weapons/lightning_orb.tscn")

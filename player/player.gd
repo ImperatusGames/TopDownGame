@@ -1,9 +1,10 @@
-extends CharacterBody2D
-class_name Player
+#extends CharacterBody2D
+class_name Player extends Entity
 
-var player_xp : int = 0
-var level : int = 1
-var xp_to_level = 3
+var player_xp := 0
+var level := 1
+var xp_to_level := 3
+var weapon_array : Array[WeaponOrb]
 
 #const XP_COIN = preload("res://assets/xp_coin.tscn")
 
@@ -44,3 +45,25 @@ func level_up():
 	xp_to_level += 2
 	%HealthComponent.current_health = %HealthComponent.MAX_HEALTH
 	print("Player leveled up to level " + str(level))
+
+func add_weapon_orb(weapon: WeaponOrb):
+	print(weapon.get_type())
+	
+	if weapon.get_type() == "FireOrb":
+		#if weapon_array == null or weapon_array[0].is_class("FireOrb"):
+		if weapon_array.size() < 8:
+			weapon_array.append(weapon)
+			print("Fire Orb added to weapon array!")
+			print(weapon_array.size())
+			#TODO Add the child to the player's tree and then set global position based on the number of fire orbs already there
+			#TODO Can we link the child in the tree to the item in the array?
+		else:
+			print("Too many in the array! Can't add any more.")
+	elif weapon.get_type() == "IceOrb":
+		if weapon_array == null:
+			weapon_array.append(weapon)
+	elif weapon.get_type() == "LightningOrb":
+		if weapon_array == null:
+			weapon_array.append(weapon)
+	else:
+		pass

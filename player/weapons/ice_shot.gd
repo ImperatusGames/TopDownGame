@@ -1,12 +1,14 @@
 extends Area2D
 
-var travelled_distance = 0
-var pierce_enabled = false
-var max_pierces = 0
-var pierce_count = 0
-var damage = 0
-var slow_enabled = false
-var freeze_enabled = false
+var travelled_distance := 0
+var pierce_enabled := false
+var max_pierces := 0
+var pierce_count := 0
+var damage := 0
+var slow_enabled := false
+var freeze_enabled := false
+var slow_chance := 0.25
+var freeze_chance := 0.1
 
 #signal hurtbox_area_entered
 
@@ -50,11 +52,20 @@ func _on_area_entered(area) -> void:
 		attack.attack_damage = damage
 		
 		if slow_enabled == true:
-			attack.slow = true
-			attack.slow_unit(hurtbox.get_parent())
+			var slow_roll = randi_range(0, 100)
+			print("Slow chance: ", slow_roll)
+			if slow_roll <= slow_chance * 100:
+				attack.slow = true
+				print("Slow success: ", attack.slow)
+				attack.slow_unit(hurtbox.get_parent())
 			
 		if freeze_enabled == true:
-			attack.freeze = true
+			var freeze_roll = randi_range(0, 100)
+			print("Freeze chance: ", freeze_roll)
+			if freeze_roll <= freeze_chance * 100:
+				attack.freeze = true
+				print("Freeze success: ", attack.freeze)
+				attack.freeze_unit(hurtbox.get_parent())
 			
 		hurtbox.damage(attack)
 		#print("Damage dealt!")

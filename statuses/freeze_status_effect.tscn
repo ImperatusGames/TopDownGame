@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctjaf7y6tfc6q"]
+
+[ext_resource type="Script" path="res://statuses/freeze_status_effect.gd" id="1_nxiqf"]
+
+[node name="FreezeStatusEffect" type="Node2D"]
+script = ExtResource("1_nxiqf")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true

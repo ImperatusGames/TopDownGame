@@ -1,4 +1,5 @@
-extends Area2D
+#extends Area2D
+class_name LightningOrb extends WeaponOrb
 
 var upgrade_level : int = 1
 var damage : int = 1
@@ -80,3 +81,6 @@ func lightning_strike(location : Vector2):
 			var tween = create_tween()
 			tween.tween_property(bolt, "modulate", Color.TRANSPARENT, 1)
 			tween.tween_callback(bolt.queue_free)
+
+func is_type(type): return type == "LightningOrb" or is_type(type)
+func get_type(): return "LightningOrb"

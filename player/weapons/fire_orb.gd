@@ -1,4 +1,5 @@
-extends Area2D
+#extends Area2D
+class_name FireOrb extends WeaponOrb
 
 var upgrade_level := 1
 var damage := 0
@@ -24,3 +25,6 @@ func shoot():
 func _on_timer_timeout() -> void:
 	shoot()
 	#print("Fireball spawned")
+
+func is_type(type): return type == "FireOrb" or is_type(type)
+func get_type(): return "FireOrb"

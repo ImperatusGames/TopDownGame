@@ -1,17 +1,17 @@
 #extends Node2D
-class_name SlowStatusEffect extends StatusEffect
+class_name FreezeStatusEffect extends StatusEffect
 
 func _ready() -> void:
-	$Timer.timeout.connect(_on_slow_timeout)
+	$Timer.timeout.connect(_on_freeze_timeout)
 	#get_tree().call_group("Status Effects", "slowed")
-	get_parent().get_node("VelocityComponent").slowed()
+	get_parent().get_node("VelocityComponent").frozen()
 
-func _on_slow_timeout():
+func _on_freeze_timeout():
 	#get_tree().call_group("Status Effects", "restore_speed")
 	get_parent().get_node("VelocityComponent").restore_speed()
 	call_deferred("queue_free")
 
-func _slow_timer_refresh():
+func _freeze_timer_refresh():
 	%Timer.start(1.5)
 
 ####Rewrite functionality as follows
