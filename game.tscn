@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cib2trgltqr2v"]
+[gd_scene load_steps=11 format=3 uid="uid://cib2trgltqr2v"]
 
 [ext_resource type="PackedScene" uid="uid://cs7snk0ujxfjr" path="res://player/player.tscn" id="1_jdka2"]
 [ext_resource type="Script" path="res://game.gd" id="1_qu5d8"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bxivxp5tfrojs" path="res://enemies/enemy_spawner.tscn" id="6_hh5lf"]
 [ext_resource type="PackedScene" uid="uid://b4hbonekt2eg4" path="res://fire_orb_spawn.tscn" id="6_rn3pu"]
 [ext_resource type="PackedScene" uid="uid://ds8p1no3jqt6t" path="res://bolt_orb_spawn.tscn" id="7_uwgwt"]
+[ext_resource type="PackedScene" uid="uid://cxt4ns1edmwhi" path="res://game_ui.tscn" id="9_1a058"]
 
 [sub_resource type="Curve2D" id="Curve2D_bimy6"]
 _data = {
@@ -68,3 +69,5 @@ offset_bottom = 349.0
 
 [node name="EnemySpawner" parent="." instance=ExtResource("6_hh5lf")]
 enemy = Array[PackedScene]([ExtResource("2_841bp")])
+
+[node name="GameUI" parent="." instance=ExtResource("9_1a058")]

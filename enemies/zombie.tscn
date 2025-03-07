@@ -52,7 +52,7 @@ frame_progress = 0.797568
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_8yvla")]
 unique_name_in_owner = true
-MAX_HEALTH = 5
+MAX_HEALTH = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)

@@ -6,11 +6,22 @@ extends Node2D
 @onready var fire_button = $FireOrbSpawn.get_node("Button")
 @onready var bolt_button = $BoltOrbSpawn.get_node("Button")
 
+@onready var game_ui: CanvasLayer = $GameUI
+var game_time: float = 0.0
+var score: int = 0
+
 func _ready() -> void:
 	ice_button.pressed.connect(_ice_orb_spawn_pressed)
 	fire_button.pressed.connect(_fire_orb_spawn_pressed)
 	bolt_button.pressed.connect(_bolt_orb_spawn_pressed)
 	#%Timer.timeout.connect(_on_timer_timeout)
+	
+func _process(delta: float) -> void:
+	game_time += delta
+	game_ui.set_timer(game_time)
+	if randf() < 0.1 * delta:  # Random score increase for testing
+		score += 10
+		game_ui.set_score(score)
 	
 func _ice_orb_spawn_pressed():
 	const ICE_ORB = preload("res://player/weapons/ice_orb.tscn")
