@@ -6,6 +6,7 @@ var level : int = 1
 var xp_to_level = 3
 
 #const XP_COIN = preload("res://assets/xp_coin.tscn")
+@onready var health_component: HealthComponent = %HealthComponent
 
 #func _ready() -> void:
 	#XP_COIN.experience_gain.connect(_on_experience_gain)
@@ -25,8 +26,11 @@ func _process(delta: float) -> void:
 			#print(damage_rate)
 			
 	if overlapping_enemies.size() > 0:
-		%HealthComponent.current_health -= damage_rate * delta
-		#print(%HealthComponent.current_health)
+		#%HealthComponent.current_health -= damage_rate * delta
+		var attack = Attack.new()
+		attack.attack_damage = damage_rate*delta
+		%HealthComponent.damage(attack)
+		print(%HealthComponent.current_health)
 
 func on_experience_gain(experience):
 	player_xp += experience
