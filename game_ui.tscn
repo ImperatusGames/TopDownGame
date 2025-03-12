@@ -1,52 +1,60 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxt4ns1edmwhi"]
+[gd_scene load_steps=4 format=3 uid="uid://cxt4ns1edmwhi"]
 
 [ext_resource type="Script" path="res://game_ui.gd" id="1_62n8e"]
-[ext_resource type="Theme" uid="uid://buxki7sl2sxaj" path="res://resources/ui_theme.tres" id="2_3xlw3"]
-[ext_resource type="StyleBox" uid="uid://c6q5qaekarbm4" path="res://resources/health_bar_bg.tres" id="2_pkix5"]
-[ext_resource type="StyleBox" uid="uid://4fxtdqamrlbc" path="res://resources/health_bar_fill.tres" id="3_drq8f"]
-[ext_resource type="StyleBox" uid="uid://cm106ryp7afo7" path="res://resources/xp_bar_bg.tres" id="5_ydq3q"]
-[ext_resource type="StyleBox" uid="uid://c8kewx8c4olju" path="res://resources/xp_bar_fill.tres" id="6_wtui8"]
+[ext_resource type="Texture2D" uid="uid://d0e8pntpprd41" path="res://assets/bg_hp.png" id="2_oo5t2"]
+[ext_resource type="Texture2D" uid="uid://bbpjm7pxyhoy7" path="res://assets/fg_hp.png" id="3_8gxjl"]
 
 [node name="GameUI" type="CanvasLayer"]
 script = ExtResource("1_62n8e")
 
-[node name="TopBar" type="HBoxContainer" parent="."]
-custom_minimum_size = Vector2(0, 50)
-offset_right = 305.0
-offset_bottom = 60.0
+[node name="TopBar" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0.5)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopBar"]
+layout_mode = 2
+
+[node name="LeftSection" type="VBoxContainer" parent="TopBar/HBoxContainer"]
+layout_mode = 2
+
+[node name="HealthBar" type="TextureProgressBar" parent="TopBar/HBoxContainer/LeftSection"]
+custom_minimum_size = Vector2(200, 15)
+layout_mode = 2
+value = 100.0
+texture_under = ExtResource("2_oo5t2")
+texture_progress = ExtResource("3_8gxjl")
+texture_progress_offset = Vector2(30, 12)
+
+[node name="XPBar" type="TextureProgressBar" parent="TopBar/HBoxContainer/LeftSection"]
+clip_contents = true
+layout_mode = 2
+texture_under = ExtResource("2_oo5t2")
+texture_progress = ExtResource("3_8gxjl")
+texture_progress_offset = Vector2(30, 12)
+
+[node name="Control" type="Control" parent="TopBar/HBoxContainer"]
+layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TopBar"]
-custom_minimum_size = Vector2(100, 0)
+[node name="RightSection" type="VBoxContainer" parent="TopBar/HBoxContainer"]
 layout_mode = 2
 
-[node name="HealthBar" type="ProgressBar" parent="TopBar/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/background = ExtResource("2_pkix5")
-theme_override_styles/fill = ExtResource("3_drq8f")
-value = 100.0
-
-[node name="XPBar" type="ProgressBar" parent="TopBar/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_3xlw3")
-theme_override_styles/background = ExtResource("5_ydq3q")
-theme_override_styles/fill = ExtResource("6_wtui8")
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="TopBar"]
-layout_mode = 2
-
-[node name="ScoreLabel" type="Label" parent="TopBar/VBoxContainer2"]
+[node name="ScoreLabel" type="Label" parent="TopBar/HBoxContainer/RightSection"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Score: 0"
+horizontal_alignment = 2
 
-[node name="TimerLabel" type="Label" parent="TopBar/VBoxContainer2"]
+[node name="TimerLabel" type="Label" parent="TopBar/HBoxContainer/RightSection"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Time Left: 60"
+horizontal_alignment = 2
 
-[node name="LevelLabel" type="Label" parent="TopBar"]
+[node name="LevelLabel" type="Label" parent="TopBar/HBoxContainer/RightSection"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Level: 0"
+horizontal_alignment = 2

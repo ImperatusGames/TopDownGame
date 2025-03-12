@@ -34,9 +34,9 @@ position = Vector2(881, 350)
 [node name="IceOrbSpawn" parent="." instance=ExtResource("4_rxucg")]
 unique_name_in_owner = true
 offset_left = 919.0
-offset_top = 35.0
+offset_top = 150.0
 offset_right = 1110.0
-offset_bottom = 93.0
+offset_bottom = 208.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Path2D" type="Path2D" parent="."]
@@ -55,10 +55,10 @@ autostart = true
 
 [node name="FireOrbSpawn" parent="." instance=ExtResource("6_rn3pu")]
 unique_name_in_owner = true
-offset_left = 956.0
-offset_top = 565.0
-offset_right = 1103.0
-offset_bottom = 623.0
+offset_left = 957.0
+offset_top = 413.0
+offset_right = 1104.0
+offset_bottom = 471.0
 
 [node name="BoltOrbSpawn" parent="." instance=ExtResource("7_uwgwt")]
 unique_name_in_owner = true

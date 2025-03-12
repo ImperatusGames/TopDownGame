@@ -17,3 +17,7 @@ func damage(attack: Attack):
 	
 	if current_health <= 0:
 		health_empty.emit()
+		
+func heal():
+	current_health = MAX_HEALTH
+	emit_signal("health_changed", current_health)

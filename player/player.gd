@@ -9,6 +9,8 @@ var weapon_array : Array[WeaponOrb]
 #const XP_COIN = preload("res://assets/xp_coin.tscn")
 @onready var health_component: HealthComponent = %HealthComponent
 
+signal xp_changed
+
 #func _ready() -> void:
 	#XP_COIN.experience_gain.connect(_on_experience_gain)
 
@@ -35,6 +37,7 @@ func _process(delta: float) -> void:
 
 func on_experience_gain(experience):
 	player_xp += experience
+	emit_signal("xp_changed")
 	get_experience()
 
 func get_experience():
@@ -47,8 +50,9 @@ func level_up():
 	player_xp = 0
 	level += 1
 	xp_to_level += 2
-	%HealthComponent.current_health = %HealthComponent.MAX_HEALTH
-	print("Player leveled up to level " + str(level))
+	health_component.heal()
+	print("LEVEL UP! -- -- Player leveled up to level " + str(level) + " -- --")
+	emit_signal("xp_changed")
 
 func add_weapon_orb(weapon: WeaponOrb):
 	print(weapon.get_type())
