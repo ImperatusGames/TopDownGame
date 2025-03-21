@@ -5,6 +5,7 @@ extends Node2D
 @onready var ice_button = $IceOrbSpawn.get_node("Button")
 @onready var fire_button = $FireOrbSpawn.get_node("Button")
 @onready var bolt_button = $BoltOrbSpawn.get_node("Button")
+@onready var pause_screen = preload("res://ui/pause_screen.tscn")
 
 @onready var game_ui: CanvasLayer = $GameUI
 var game_time: float = 0.0
@@ -22,6 +23,9 @@ func _process(delta: float) -> void:
 	if randf() < 0.1 * delta:  # Random score increase for testing
 		score += 10
 		game_ui.set_score(score)
+	
+	if Input.is_action_just_pressed("ui_cancel"):
+		show_pause_screen()
 	
 func _ice_orb_spawn_pressed():
 	const ICE_ORB = preload("res://player/weapons/ice_orb.tscn")
@@ -48,6 +52,15 @@ func _bolt_orb_spawn_pressed():
 	player.add_child(new_orb)
 	print("New Bolt Orb spawned at " + str(new_orb.global_position))
 
+func show_pause_screen():
+	var show_pause = pause_screen.instantiate()
+	add_child(show_pause)
+	get_tree().paused = true
+	show_pause.visible = true
+
+func close_pause_screen():
+	get_tree().paused = false
+	
 #func spawn_mob():
 	#var new_mob = preload("res://enemies/zombie.tscn").instantiate()
 	#%PathFollow2D.progress_ratio = randf()

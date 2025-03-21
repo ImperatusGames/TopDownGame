@@ -1,5 +1,5 @@
 #extends CharacterBody2D
-class_name Enemy extends Entity
+class_name Zombie extends Entity
 
 @onready var player = get_node("/root/Game/Player")
 

@@ -8,7 +8,7 @@
 script = ExtResource("1_62n8e")
 
 [node name="TopBar" type="PanelContainer" parent="."]
-self_modulate = Color(1, 1, 1, 0.5)
+self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
