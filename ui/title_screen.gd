@@ -15,9 +15,8 @@ func settings():
 	add_child(show_settings)
 
 func start_game():
-	var new_game = game_load.instantiate()
-	add_sibling(new_game)
-	call_deferred("queue_free")
+	get_tree().change_scene_to_file("res://game.tscn")
+	#call_deferred("queue_free")
 
 func exit_game():
 	get_tree().quit()

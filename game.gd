@@ -65,7 +65,7 @@ func close_pause_screen():
 	
 func end_game():
 	get_tree().change_scene_to_file("res://ui/title_screen.tscn")
-	call_deferred("queue_free")
+	#call_deferred("queue_free")
 
 func level_up():
 	var show_level_up = level_up_screen.instantiate()
