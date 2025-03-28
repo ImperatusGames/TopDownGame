@@ -22,4 +22,7 @@ func settings():
 	add_child(show_settings)
 	
 func end_game():
-	get_tree().quit()
+	get_tree().paused = false
+	call_deferred("queue_free")
+	game.end_game()
+	

@@ -3,11 +3,12 @@ class_name VelocityComponent
 
 @export var BASE_SPEED : float
 @export var current_speed : float
+@export var speed_mod : float
 @export var slowable : bool
 @export var freezeable : bool
 
 func _ready():
-	current_speed = BASE_SPEED
+	calculate_speed()
 
 func can_be_slowed():
 	if slowable == true:
@@ -28,4 +29,7 @@ func frozen():
 	current_speed = 0
 	
 func restore_speed():
-	current_speed = BASE_SPEED
+	calculate_speed()
+
+func calculate_speed():
+	current_speed = BASE_SPEED * (1.0 + speed_mod)

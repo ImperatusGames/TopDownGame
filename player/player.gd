@@ -10,6 +10,8 @@ var weapon_array : Array[WeaponOrb]
 @onready var health_component: HealthComponent = %HealthComponent
 
 signal xp_changed
+signal level_up_signal
+signal health_depleted
 
 #func _ready() -> void:
 	#XP_COIN.experience_gain.connect(_on_experience_gain)
@@ -47,6 +49,7 @@ func get_experience():
 		print("XP to level: " + str(xp_to_level - player_xp))
 
 func level_up():
+	emit_signal("level_up_signal")
 	player_xp = 0
 	level += 1
 	xp_to_level += 2
@@ -75,3 +78,11 @@ func add_weapon_orb(weapon: WeaponOrb):
 			weapon_array.append(weapon)
 	else:
 		pass
+
+func speed_increase(val):
+	%VelocityComponent.speed_mod += val
+	print(%VelocityComponent.speed_mod)
+
+func health_increase(val):
+	%HealthComponent.MAX_HEALTH += val
+	print(%HealthComponent.MAX_HEALTH)

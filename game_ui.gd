@@ -18,7 +18,7 @@ func _ready():
 		player.connect("xp_changed", _on_player_xp_changed)
 		xp_bar.value = player.player_xp
 		xp_bar.max_value = player.xp_to_level
-		health_bar.max_value = player.health_component.MAX_HEALTH
+		health_bar.max_value = player.health_component.max_health
 		health_bar.value = player.health_component.current_health
 	
 	# Connect to Global upgrades
