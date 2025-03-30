@@ -14,7 +14,7 @@ func _ready():
 	if player:
 		##player.health.connect("health_changed", _on_player_health_changed)
 		player.health_component.connect("health_changed", _on_player_health_changed)
-		player.health_component.connect("health_depleted", _on_player_health_depleted)
+		player.connect("health_depleted", _on_player_health_depleted)
 		player.connect("xp_changed", _on_player_xp_changed)
 		xp_bar.value = player.player_xp
 		xp_bar.max_value = player.xp_to_level

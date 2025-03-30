@@ -7,7 +7,7 @@ func _ready() -> void:
 	%StartGame.pressed.connect(start_game)
 	%Settings.pressed.connect(settings)
 	%ExitGame.pressed.connect(exit_game)
-	%DummySprite.animation = "default"
+	%DummySprite.play("default")
 
 func settings():
 	visible = false

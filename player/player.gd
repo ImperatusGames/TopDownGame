@@ -13,8 +13,9 @@ signal xp_changed
 signal level_up_signal
 signal health_depleted
 
-#func _ready() -> void:
-	#XP_COIN.experience_gain.connect(_on_experience_gain)
+func _ready() -> void:
+	health_component.connect("health_empty", zero_health)
+	#pass
 
 func _process(delta: float) -> void:
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -84,5 +85,8 @@ func speed_increase(val):
 	print(%VelocityComponent.speed_mod)
 
 func health_increase(val):
-	%HealthComponent.MAX_HEALTH += val
-	print(%HealthComponent.MAX_HEALTH)
+	health_component.max_health += val
+	print(health_component.max_health)
+
+func zero_health():
+	emit_signal("health_depleted")

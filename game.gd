@@ -7,6 +7,7 @@ extends Node2D
 @onready var bolt_button = $BoltOrbSpawn.get_node("Button")
 @onready var pause_screen = preload("res://ui/pause_screen.tscn")
 @onready var level_up_screen = preload("res://ui/level_up_screen.tscn")
+@onready var game_over_screen = preload("res://ui/game_over.tscn")
 
 @onready var game_ui: CanvasLayer = $GameUI
 var game_time: float = 0.0
@@ -17,6 +18,7 @@ func _ready() -> void:
 	fire_button.pressed.connect(_fire_orb_spawn_pressed)
 	bolt_button.pressed.connect(_bolt_orb_spawn_pressed)
 	player.connect("level_up_signal", level_up)
+	player.connect("health_depleted", player_dead)
 	#%Timer.timeout.connect(_on_timer_timeout)
 	
 func _process(delta: float) -> void:
@@ -70,6 +72,11 @@ func end_game():
 func level_up():
 	var show_level_up = level_up_screen.instantiate()
 	add_child(show_level_up)
+	get_tree().paused = true
+
+func player_dead():
+	var game_over = game_over_screen.instantiate()
+	add_child(game_over)
 	get_tree().paused = true
 
 #func spawn_mob():

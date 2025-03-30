@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://ui/game_over.gd" id="1_mjnov"]
 
 [node name="Game Over" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_mjnov")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -29,11 +30,13 @@ layout_mode = 2
 theme_override_constants/separation = 25
 
 [node name="NewGame" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 text = "New Game"
 
 [node name="TitleScreen" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Back to Title Screen"
