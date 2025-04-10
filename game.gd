@@ -36,8 +36,9 @@ func _ice_orb_spawn_pressed():
 	var new_orb = ICE_ORB.instantiate()
 	#new_orb.global_position = player.global_position
 	#new_orb.global_rotation = player.global_rotation
-	player.add_child(new_orb)
-	print("New Ice Orb spawned at " + str(new_orb.global_position))
+	player.add_weapon_orb(new_orb)
+	#print("Ice Orb button press done")
+	#print("New Ice Orb spawned at " + str(new_orb.global_position))
 	
 func _fire_orb_spawn_pressed():
 	const FIRE_ORB = preload("res://player/weapons/fire_orb.tscn")
@@ -45,7 +46,7 @@ func _fire_orb_spawn_pressed():
 	#new_orb.global_position = player.global_position
 	#new_orb.global_rotation = player.global_rotation
 	player.add_weapon_orb(new_orb)
-	print("Fire Orb button press done")
+	#print("Fire Orb button press done")
 	#print("New Fire Orb spawned at " + str(new_orb.global_position))
 
 func _bolt_orb_spawn_pressed():
@@ -53,8 +54,9 @@ func _bolt_orb_spawn_pressed():
 	var new_orb = BOLT_ORB.instantiate()
 	#new_orb.global_position = player.global_position
 	#new_orb.global_rotation = player.global_rotation
-	player.add_child(new_orb)
-	print("New Bolt Orb spawned at " + str(new_orb.global_position))
+	player.add_weapon_orb(new_orb)
+	#print("Bolt Orb button press done")
+	#print("New Bolt Orb spawned at " + str(new_orb.global_position))
 
 func show_pause_screen():
 	var show_pause = pause_screen.instantiate()

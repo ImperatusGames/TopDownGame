@@ -28,3 +28,6 @@ func _on_timer_timeout() -> void:
 
 func is_type(type): return type == "FireOrb" or is_type(type)
 func get_type(): return "FireOrb"
+
+func shooting_point_rotation(val):
+	%ShootingPoint.rotation = val

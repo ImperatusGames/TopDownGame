@@ -6,8 +6,8 @@ var level := 1
 var xp_to_level := 3
 var weapon_array : Array[WeaponOrb]
 
-#const XP_COIN = preload("res://assets/xp_coin.tscn")
 @onready var health_component: HealthComponent = %HealthComponent
+@onready var velocity_component: VelocityComponent = %VelocityComponent
 
 signal xp_changed
 signal level_up_signal
@@ -19,7 +19,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = direction * %VelocityComponent.current_speed
+	velocity = direction * velocity_component.current_speed
 	move_and_slide()
 
 	var damage_rate: float = 0.0
@@ -35,8 +35,8 @@ func _process(delta: float) -> void:
 		#%HealthComponent.current_health -= damage_rate * delta
 		var attack = Attack.new()
 		attack.attack_damage = damage_rate*delta
-		%HealthComponent.damage(attack)
-		print(%HealthComponent.current_health)
+		health_component.damage(attack)
+		print(health_component.current_health)
 
 func on_experience_gain(experience):
 	player_xp += experience
@@ -62,27 +62,40 @@ func add_weapon_orb(weapon: WeaponOrb):
 	print(weapon.get_type())
 	
 	if weapon.get_type() == "FireOrb":
-		#if weapon_array == null or weapon_array[0].is_class("FireOrb"):
+		#if weapon_array.size() == 0 or weapon_array[0].is_class("FireOrb"):
 		if weapon_array.size() < 8:
 			weapon_array.append(weapon)
-			print("Fire Orb added to weapon array!")
-			print(weapon_array.size())
-			#TODO Add the child to the player's tree and then set global position based on the number of fire orbs already there
-			#TODO Can we link the child in the tree to the item in the array?
+			#print("Fire Orb added to weapon array!")
+			#print(weapon_array.size())
+			add_child(weapon)
+			if weapon_array.size() > 1:
+				for i in range(0, weapon_array.size()):
+					var x = ((360 / weapon_array.size()) * i)
+					weapon_array[i].shooting_point_rotation(x)
+					#print(weapon_array[i].global_rotation)
 		else:
-			print("Too many in the array! Can't add any more.")
+			#print("Too many in the array! Can't add any more.")
+			pass
 	elif weapon.get_type() == "IceOrb":
-		if weapon_array == null:
+		if weapon_array == null or weapon_array.size() == 0:
 			weapon_array.append(weapon)
+			add_child(weapon)
+		else:
+			#print("Too many in the array! Can't add any more.")
+			pass
 	elif weapon.get_type() == "LightningOrb":
-		if weapon_array == null:
+		if weapon_array == null or weapon_array.size() == 0:
 			weapon_array.append(weapon)
+			add_child(weapon)
+		else:
+			#print("Too many in the array! Can't add any more.")
+			pass
 	else:
 		pass
 
 func speed_increase(val):
-	%VelocityComponent.speed_mod += val
-	print(%VelocityComponent.speed_mod)
+	velocity_component.speed_mod += val
+	print(velocity_component.speed_mod)
 
 func health_increase(val):
 	health_component.max_health += val
@@ -90,3 +103,15 @@ func health_increase(val):
 
 func zero_health():
 	emit_signal("health_depleted")
+
+func get_weapon_type():
+	if weapon_array == null:
+		return null
+	elif weapon_array[0].get_type() == "FireOrb":
+		return "FireOrb"
+	elif weapon_array[0].get_type() == "IceOrb":
+		return "IceOrb"
+	elif weapon_array[0].get_type() == "LightningOrb":
+		return "LightningOrb"
+	else:
+		return "Error"
