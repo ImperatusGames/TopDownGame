@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b4hbonekt2eg4"]
 
-[ext_resource type="Script" path="res://fire_orb_spawn.gd" id="1_8iu2h"]
+[ext_resource type="Script" path="res://ui/old_elements/fire_orb_spawn.gd" id="1_8iu2h"]
 [ext_resource type="Texture2D" uid="uid://df0orqwrq6bsk" path="res://assets/coin_single.png" id="1_a7t26"]
 
 [node name="FireOrbSpawn" type="VBoxContainer"]

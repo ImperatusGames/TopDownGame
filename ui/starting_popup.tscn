@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://ui/starting_popup.gd" id="1_4my4i"]
 
 [node name="Starting Popup" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_4my4i")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]

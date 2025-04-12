@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ds8p1no3jqt6t"]
 
 [ext_resource type="Texture2D" uid="uid://df0orqwrq6bsk" path="res://assets/coin_single.png" id="1_6ctvo"]
-[ext_resource type="Script" path="res://bolt_orb_spawn.gd" id="1_yyifv"]
+[ext_resource type="Script" path="res://ui/old_elements/bolt_orb_spawn.gd" id="1_yyifv"]
 
 [node name="BoltOrbSpawn" type="VBoxContainer"]
 offset_right = 40.0

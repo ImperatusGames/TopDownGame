@@ -9,7 +9,7 @@ func _ready() -> void:
 	$Timer.timeout.connect(_on_timer_timeout)
 
 func _physics_process(delta: float) -> void:
-	%ShootingPoint.rotation += (1 * delta)
+	%ShootingPoint.rotation += (1.2 * delta)
 	#$FireOrbSprite.rotation += (1 * delta)
 
 func shoot():
@@ -31,3 +31,6 @@ func get_type(): return "FireOrb"
 
 func shooting_point_rotation(val):
 	%ShootingPoint.rotation = val
+
+func reset_timer():
+	%Timer.start()

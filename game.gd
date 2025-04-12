@@ -8,17 +8,19 @@ extends Node2D
 @onready var pause_screen = preload("res://ui/pause_screen.tscn")
 @onready var level_up_screen = preload("res://ui/level_up_screen.tscn")
 @onready var game_over_screen = preload("res://ui/game_over.tscn")
+@onready var starting_popup = preload("res://ui/starting_popup.tscn")
 
 @onready var game_ui: CanvasLayer = $GameUI
 var game_time: float = 0.0
 var score: int = 0
 
 func _ready() -> void:
-	ice_button.pressed.connect(_ice_orb_spawn_pressed)
-	fire_button.pressed.connect(_fire_orb_spawn_pressed)
-	bolt_button.pressed.connect(_bolt_orb_spawn_pressed)
+	#ice_button.pressed.connect(_ice_orb_spawn_pressed)
+	#fire_button.pressed.connect(_fire_orb_spawn_pressed)
+	#bolt_button.pressed.connect(_bolt_orb_spawn_pressed)
 	player.connect("level_up_signal", level_up)
 	player.connect("health_depleted", player_dead)
+	call_deferred("start_game")
 	#%Timer.timeout.connect(_on_timer_timeout)
 	
 func _process(delta: float) -> void:
@@ -31,7 +33,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		show_pause_screen()
 	
-func _ice_orb_spawn_pressed():
+func ice_orb_pressed():
 	const ICE_ORB = preload("res://player/weapons/ice_orb.tscn")
 	var new_orb = ICE_ORB.instantiate()
 	#new_orb.global_position = player.global_position
@@ -40,7 +42,7 @@ func _ice_orb_spawn_pressed():
 	#print("Ice Orb button press done")
 	#print("New Ice Orb spawned at " + str(new_orb.global_position))
 	
-func _fire_orb_spawn_pressed():
+func fire_orb_pressed():
 	const FIRE_ORB = preload("res://player/weapons/fire_orb.tscn")
 	var new_orb = FIRE_ORB.instantiate()
 	#new_orb.global_position = player.global_position
@@ -49,7 +51,7 @@ func _fire_orb_spawn_pressed():
 	#print("Fire Orb button press done")
 	#print("New Fire Orb spawned at " + str(new_orb.global_position))
 
-func _bolt_orb_spawn_pressed():
+func bolt_orb_pressed():
 	const BOLT_ORB = preload("res://player/weapons/lightning_orb.tscn")
 	var new_orb = BOLT_ORB.instantiate()
 	#new_orb.global_position = player.global_position
@@ -79,6 +81,11 @@ func level_up():
 func player_dead():
 	var game_over = game_over_screen.instantiate()
 	add_child(game_over)
+	get_tree().paused = true
+
+func start_game():
+	var startup = starting_popup.instantiate()
+	add_child(startup)
 	get_tree().paused = true
 
 #func spawn_mob():

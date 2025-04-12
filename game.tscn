@@ -4,10 +4,10 @@
 [ext_resource type="Script" path="res://game.gd" id="1_qu5d8"]
 [ext_resource type="PackedScene" uid="uid://db44ncf08m8q8" path="res://enemies/zombie.tscn" id="2_841bp"]
 [ext_resource type="PackedScene" uid="uid://cm71qkqjauy36" path="res://assets/xp_coin.tscn" id="3_rsvab"]
-[ext_resource type="PackedScene" uid="uid://bpukm82q4ktld" path="res://ice_orb_spawn.tscn" id="4_rxucg"]
+[ext_resource type="PackedScene" uid="uid://bpukm82q4ktld" path="res://ui/old_elements/ice_orb_spawn.tscn" id="4_rxucg"]
 [ext_resource type="PackedScene" uid="uid://bxivxp5tfrojs" path="res://enemies/enemy_spawner.tscn" id="6_hh5lf"]
-[ext_resource type="PackedScene" uid="uid://b4hbonekt2eg4" path="res://fire_orb_spawn.tscn" id="6_rn3pu"]
-[ext_resource type="PackedScene" uid="uid://ds8p1no3jqt6t" path="res://bolt_orb_spawn.tscn" id="7_uwgwt"]
+[ext_resource type="PackedScene" uid="uid://b4hbonekt2eg4" path="res://ui/old_elements/fire_orb_spawn.tscn" id="6_rn3pu"]
+[ext_resource type="PackedScene" uid="uid://ds8p1no3jqt6t" path="res://ui/old_elements/bolt_orb_spawn.tscn" id="7_uwgwt"]
 [ext_resource type="PackedScene" uid="uid://cxt4ns1edmwhi" path="res://game_ui.tscn" id="9_1a058"]
 
 [sub_resource type="Curve2D" id="Curve2D_bimy6"]
@@ -33,6 +33,7 @@ position = Vector2(881, 350)
 
 [node name="IceOrbSpawn" parent="." instance=ExtResource("4_rxucg")]
 unique_name_in_owner = true
+visible = false
 offset_left = 919.0
 offset_top = 150.0
 offset_right = 1110.0
@@ -55,6 +56,7 @@ autostart = true
 
 [node name="FireOrbSpawn" parent="." instance=ExtResource("6_rn3pu")]
 unique_name_in_owner = true
+visible = false
 offset_left = 957.0
 offset_top = 413.0
 offset_right = 1104.0
@@ -62,6 +64,7 @@ offset_bottom = 471.0
 
 [node name="BoltOrbSpawn" parent="." instance=ExtResource("7_uwgwt")]
 unique_name_in_owner = true
+visible = false
 offset_left = 928.0
 offset_top = 291.0
 offset_right = 1118.0

@@ -9,6 +9,7 @@ func _ready() -> void:
 	%HealthUp.pressed.connect(health_up)
 	%SpeedUp.pressed.connect(speed_up)
 	weapon_type = player.get_weapon_type()
+	var weapon_level = player.get_weapon_level()
 
 func speed_up():
 	player.speed_increase(0.05)
@@ -19,10 +20,18 @@ func health_up():
 	cleanup()
 
 func damage_up():
-	pass
+	player.damage_increase(1)
+	cleanup()
 
 func weapon_special():
-	pass
+	if weapon_type == "FireOrb":
+		pass
+	elif weapon_type == "IceOrb":
+		pass
+	elif weapon_type == "LightningOrb":
+		pass
+	else:
+		pass
 
 func cleanup():
 	get_tree().paused = false
