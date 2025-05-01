@@ -73,6 +73,7 @@ func add_weapon_orb(weapon: WeaponOrb):
 					var x = (((PI * 2) / weapon_array.size()) * i)
 					weapon_array[i].shooting_point_rotation(x)
 					weapon_array[i].reset_timer()
+					weapon_array[i].upgrade_level += 1
 					
 		else:
 			#print("Too many in the array! Can't add any more.")
@@ -105,6 +106,7 @@ func health_increase(val):
 func damage_increase(val):
 	for i in range(weapon_array.size()):
 		weapon_array[i].damage += val
+		weapon_array[i].upgrade_level += 1
 		print(weapon_array[i].damage)
 
 func zero_health():
@@ -130,6 +132,9 @@ func get_weapon_type():
 func get_weapon_level():
 	return weapon_array[0].upgrade_level
 
+func get_weapon_size():
+	return weapon_array.size()
+
 func get_lightning_states():
 	var states = []
 	states.append(weapon_array[0].chain_lightning)
@@ -145,11 +150,41 @@ func get_fire_states():
 
 func get_ice_states():
 	var states = []
+	states.append(weapon_array[0].slow_enabled)
 	states.append(weapon_array[0].pierce_enabled)
 	states.append(weapon_array[0].max_pierces)
-	states.append(weapon_array[0].slow_enabled)
 	states.append(weapon_array[0].freeze_enabled)
 	states.append(weapon_array[0].slow_chance)
 	states.append(weapon_array[0].freeze_chance)
 	
 	return states
+
+func enable_explosions():
+	for i in range(weapon_array.size()):
+		weapon_array[i].explosions = true
+	upgrade_level_increase()
+
+func enable_slow():
+	weapon_array[0].slow_enabled = true
+	upgrade_level_increase()
+	
+func enable_pierce():
+	weapon_array[0].pierce_enabled = true
+	weapon_array[0].max_pierces = 1
+	#upgrade_level_increase()
+	
+func enable_freeze():
+	weapon_array[0].freeze_enabled = true
+	#upgrade_level_increase()
+
+func enable_chain_lightning():
+	weapon_array[0].chain_lightning = true
+	#upgrade_level_increase()
+	
+func pierce_increase():
+	weapon_array[0].max_pierces += 1
+	#upgrade_level_increase()
+	
+func upgrade_level_increase():
+	for i in range(weapon_array.size()):
+		weapon_array[i].upgrade_level += 1

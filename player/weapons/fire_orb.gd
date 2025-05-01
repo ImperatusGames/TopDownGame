@@ -1,7 +1,7 @@
 #extends Area2D
 class_name FireOrb extends WeaponOrb
 
-var upgrade_level := 1
+var upgrade_level := 0
 var damage := 0
 var explosions := false
 
@@ -20,6 +20,7 @@ func shoot():
 	new_fireball.collision_layer
 	new_fireball.collision_mask
 	new_fireball.damage += damage
+	new_fireball.explosions = explosions
 	%FireOrbSprite.add_child(new_fireball)
 
 func _on_timer_timeout() -> void:

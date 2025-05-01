@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpx4bhnpv5d6d"]
+
+[ext_resource type="Script" path="res://ui/level_up_screen.gd" id="1_mrdx3"]
+
+[node name="Level Up Screen" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_mrdx3")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.032
+anchor_top = 0.045
+anchor_right = 0.032
+anchor_bottom = 0.045
+offset_left = 0.135998
+offset_top = -0.160002
+offset_right = 1084.14
+offset_bottom = 588.84
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "You leveled up! Pick an upgrade"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SpecialUp" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Button 2"
+
+[node name="DamageUp" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Increase Orb Damage by 1"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HealthUp" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Increase HP by 5"
+
+[node name="SpeedUp" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Boost Speed by 5%"

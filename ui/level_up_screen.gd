@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var player = get_node("/root/Game/Player")
 var weapon_type = null
+var weapon_upgrade = null
 
 func _ready() -> void:
 	%DamageUp.pressed.connect(damage_up)
@@ -10,6 +11,7 @@ func _ready() -> void:
 	%SpeedUp.pressed.connect(speed_up)
 	weapon_type = player.get_weapon_type()
 	var weapon_level = player.get_weapon_level()
+	special_button_display()
 
 func speed_up():
 	player.speed_increase(0.05)
@@ -24,14 +26,79 @@ func damage_up():
 	cleanup()
 
 func weapon_special():
+	match weapon_upgrade:
+		"add":
+			var game = get_node("/root/Game")
+			game.fire_orb_pressed()
+		"explosions":
+			player.enable_explosions()
+		"explosion_size":
+			pass
+		"slow":
+			player.enable_slow()
+		"pierce":
+			player.enable_pierce()
+		"pierce_increase":
+			pass
+		"freeze":
+			player.enable_freeze()
+		"status_rate_up":
+			pass
+		"chain_lightning":
+			player.enable_chain_lightning()
+		"chain_rate":
+			pass
+	cleanup()
+
+func special_button_display():
 	if weapon_type == "FireOrb":
-		pass
+		var count = player.get_weapon_size()
+		var states = player.get_fire_states()
+		if count < 4:
+			%SpecialUp.text = "Add Fire Orb"
+			set_upgrade("add")
+		elif states[0] == false:
+			%SpecialUp.text = "Enable Explosions"
+			set_upgrade("explosions")
+		elif count < 8:
+			%SpecialUp.text = "Add Fire Orb"
+			set_upgrade("add")
+		else:
+			%SpecialUp.text = "Increase Explosion Size"
+			set_upgrade("explosion_size")
 	elif weapon_type == "IceOrb":
-		pass
+		var states = player.get_ice_states()
+		if states[0] == false:
+			%SpecialUp.text = "Chance to Slow on Hit"
+			set_upgrade("slow")
+		elif states[1] == false:
+			%SpecialUp.text = "Shot Pierces 1 enemy"
+			set_upgrade("pierce")
+		elif states[2] < 2:
+			%SpecialUp.text = "Increase the Number of Pierces by 1"
+			set_upgrade("pierce_increase")
+		elif states[3] == false:
+			%SpecialUp.text = "Chance to Freeze on Hit"
+			set_upgrade("freeze")
+		elif states[2] <= 4:
+			%SpecialUp.text = "Increase the Number of Pierces by 1"
+			set_upgrade("pierce_increase")
+		else:
+			%SpecialUp.text = "Increase Slow and Freeze Chance"
+			set_upgrade("status_rate_up")
 	elif weapon_type == "LightningOrb":
-		pass
+		var states = player.get_lightning_states()
+		if states[0] == false:
+			%SpecialUp.text = "Enable Chain Lightning"
+			set_upgrade("chain_lightning")
+		else:
+			%SpecialUp.text = "Increase Chain Lightning Rate"
+			set_upgrade("chain_rate")
 	else:
-		pass
+		%SpecialUp.text = "You Shouldn't See This!"
+
+func set_upgrade(upgrade):
+	weapon_upgrade = upgrade
 
 func cleanup():
 	get_tree().paused = false

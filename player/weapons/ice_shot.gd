@@ -4,7 +4,7 @@ var travelled_distance := 0
 var pierce_enabled := false
 var max_pierces := 0
 var pierce_count := 0
-var damage := 0
+var damage := 1
 var slow_enabled := false
 var freeze_enabled := false
 var slow_chance := 0.25
@@ -70,11 +70,4 @@ func _on_area_entered(area) -> void:
 		hurtbox.damage(attack)
 		#print("Damage dealt!")
 		queue_free()
-
-#func _slow_check(area):
-	#if area.get_parent().get_node("VelocityComponent").slowable == true:
-		#return true
-		#print("true")
-	#else:
-		#return false
-		#print("false")
+		#Change logic based on the number of pierces for the shot

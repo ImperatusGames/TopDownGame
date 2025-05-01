@@ -2,13 +2,13 @@
 class_name IceOrb extends WeaponOrb
 
 var upgrade_level := 0
+var slow_enabled := false
 var pierce_enabled := false
 var max_pierces := 0
-var slow_enabled := true
-var freeze_enabled := true
+var freeze_enabled := false
 var slow_chance := 0.25
 var freeze_chance := 0.1
-var damage := 1
+var damage := 0
 
 func _ready():
 	var timer = $IceShotTimer

@@ -2,8 +2,8 @@ extends Area2D
 
 var travelled_distance := 0
 var damage := 1
-var explosions := true
-var explosion_damage := 0
+var explosions := false
+var explosion_damage := 1
 
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)

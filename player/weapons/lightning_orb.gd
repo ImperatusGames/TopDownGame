@@ -1,10 +1,10 @@
 #extends Area2D
 class_name LightningOrb extends WeaponOrb
 
-var upgrade_level : int = 1
-var damage : int = 1
-var chain_lightning : bool = true
-var chain_rate : float = 0.75
+var upgrade_level := 0
+var damage := 1
+var chain_lightning := false
+var chain_rate := 0.75
 var location : Vector2
 
 func _ready() -> void:
