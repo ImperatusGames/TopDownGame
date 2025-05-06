@@ -6,6 +6,7 @@ extends CanvasLayer
 func _ready() -> void:
 	%Save.pressed.connect(save_settings)
 	%Exit.pressed.connect(exit_settings)
+	%MuteSFXCheckBox.pressed.connect(mute_SFX)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -17,3 +18,6 @@ func save_settings():
 func exit_settings():
 	get_parent().visible = true
 	queue_free()
+
+func mute_SFX():
+	AudioManager.set_sfx_mute(!AudioManager.get_sfx_mute())

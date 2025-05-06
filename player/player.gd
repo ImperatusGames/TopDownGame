@@ -5,6 +5,8 @@ var player_xp := 0
 var level := 1
 var xp_to_level := 3
 var weapon_array : Array[WeaponOrb]
+var footstep_interval = 0.5 #Overwrite with current speed
+var footstep_timer = 0.0
 
 @onready var health_component: HealthComponent = %HealthComponent
 @onready var velocity_component: VelocityComponent = %VelocityComponent
@@ -21,6 +23,13 @@ func _process(delta: float) -> void:
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * velocity_component.current_speed
 	move_and_slide()
+	
+	footstep_interval = 50 / velocity_component.current_speed
+	if(abs(velocity.x) > 0 or abs(velocity.y) > 0):
+		footstep_timer += delta
+		if footstep_timer >= footstep_interval:
+			AudioManager.play_footstep()
+			footstep_timer = 0
 
 	var damage_rate: float = 0.0
 	var overlapping_enemies = %HurtBoxComponent.get_overlapping_bodies()
