@@ -1,0 +1,15 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=6 format=3 uid="uid://b7l7576glg10c"]
+
+[ext_resource type="AudioStream" uid="uid://54p4bckgg8on" path="res://audio/footsteps/Bare Step Stone Hard A.wav" id="1_ej1ep"]
+[ext_resource type="AudioStream" uid="uid://deevjjywcpona" path="res://audio/footsteps/Bare Step Stone Hard B.wav" id="2_8oh1m"]
+[ext_resource type="AudioStream" uid="uid://81qcub4bdcbk" path="res://audio/footsteps/Bare Step Stone Hard C.wav" id="3_i0x58"]
+[ext_resource type="AudioStream" uid="uid://2o71ldhu8r8w" path="res://audio/footsteps/Bare Step Stone Hard D.wav" id="4_ohhab"]
+[ext_resource type="AudioStream" uid="uid://7nws2bmxbu82" path="res://audio/footsteps/Bare Step Stone Hard E.wav" id="5_atv4u"]
+
+[resource]
+streams_count = 5
+stream_0/stream = ExtResource("1_ej1ep")
+stream_1/stream = ExtResource("2_8oh1m")
+stream_2/stream = ExtResource("3_i0x58")
+stream_3/stream = ExtResource("4_ohhab")
+stream_4/stream = ExtResource("5_atv4u")
