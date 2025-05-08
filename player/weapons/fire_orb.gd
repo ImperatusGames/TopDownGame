@@ -4,6 +4,7 @@ class_name FireOrb extends WeaponOrb
 var upgrade_level := 0
 var damage := 0
 var explosions := false
+var explosion_scale := 1.0
 
 func _ready() -> void:
 	$Timer.timeout.connect(_on_timer_timeout)
@@ -21,6 +22,7 @@ func shoot():
 	new_fireball.collision_mask
 	new_fireball.damage += damage
 	new_fireball.explosions = explosions
+	new_fireball.explosion_scale = explosion_scale
 	%FireOrbSprite.add_child(new_fireball)
 	AudioManager.play_weapon_sfx("res://audio/Small Fireball Cast A.wav", 0.25)
 

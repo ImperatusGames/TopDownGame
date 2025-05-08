@@ -31,6 +31,8 @@ func shoot():
 	ice_bullet.damage += damage
 	ice_bullet.global_rotation = %ShootingPoint.global_rotation
 	ice_bullet.global_position = %ShootingPoint.global_position
+	ice_bullet.pierce_enabled = pierce_enabled
+	ice_bullet.max_pierces = max_pierces
 	ice_bullet.slow_enabled = slow_enabled
 	ice_bullet.freeze_enabled = freeze_enabled
 	ice_bullet.slow_chance = slow_chance
@@ -40,3 +42,9 @@ func shoot():
 
 func is_type(type): return type == "IceOrb" or is_type(type)
 func get_type(): return "IceOrb"
+
+func get_slow_rate():
+	return slow_chance
+
+func get_freeze_rate():
+	return freeze_chance

@@ -4,7 +4,7 @@ class_name LightningOrb extends WeaponOrb
 var upgrade_level := 0
 var damage := 1
 var chain_lightning := false
-var chain_rate := 0.75
+var chain_rate := 0.25
 var location : Vector2
 
 func _ready() -> void:
@@ -84,3 +84,6 @@ func lightning_strike(location : Vector2):
 
 func is_type(type): return type == "LightningOrb" or is_type(type)
 func get_type(): return "LightningOrb"
+
+func get_chain_rate():
+	return chain_rate

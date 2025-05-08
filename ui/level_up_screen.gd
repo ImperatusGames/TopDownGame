@@ -33,21 +33,21 @@ func weapon_special():
 		"explosions":
 			player.enable_explosions()
 		"explosion_size":
-			pass
+			player.explosion_size()
 		"slow":
 			player.enable_slow()
 		"pierce":
 			player.enable_pierce()
 		"pierce_increase":
-			pass
+			player.pierce_increase()
 		"freeze":
 			player.enable_freeze()
 		"status_rate_up":
-			pass
+			player.status_rate_up()
 		"chain_lightning":
 			player.enable_chain_lightning()
 		"chain_rate":
-			pass
+			player.chain_rate_up()
 	cleanup()
 
 func special_button_display():

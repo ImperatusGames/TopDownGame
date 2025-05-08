@@ -4,6 +4,7 @@ var travelled_distance := 0
 var damage := 1
 var explosions := false
 var explosion_damage := 1
+var explosion_scale := 1.0
 
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)
@@ -44,6 +45,7 @@ func explosion():
 	var new_explosion = EXPLOSION.instantiate()
 	new_explosion.damage += explosion_damage
 	new_explosion.global_position = global_position
+	new_explosion.scale = explosion_scale
 	#new_explosion.collision_layer = collision_layer
 	#new_explosion.collision_mask = collision_mask
 	call_deferred("add_sibling", new_explosion)

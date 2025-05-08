@@ -14,10 +14,11 @@ collision_mask = 12
 script = ExtResource("1_bfsbd")
 
 [node name="Icon" type="Sprite2D" parent="."]
-scale = Vector2(0.75, 0.75)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_6vwwm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.67, 0.67)
 shape = SubResource("CircleShape2D_c6q50")
 
 [node name="Timer" type="Timer" parent="."]

@@ -15,6 +15,7 @@ var freeze_chance := 0.1
 func _ready():
 	#Manually connects signal to detect body collisions
 	area_entered.connect(_on_area_entered)
+	#print("Pierce = " + str(pierce_enabled))
 
 func _physics_process(delta: float) -> void:
 	const SPEED = 350
@@ -69,5 +70,11 @@ func _on_area_entered(area) -> void:
 			
 		hurtbox.damage(attack)
 		#print("Damage dealt!")
-		queue_free()
+		if pierce_enabled == false or pierce_count == max_pierces:
+			queue_free()
+		else:
+			#if pierce_count == max_pierces:
+				#queue_free()
+			pierce_count += 1
+			
 		#Change logic based on the number of pierces for the shot

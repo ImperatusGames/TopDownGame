@@ -173,27 +173,41 @@ func enable_explosions():
 		weapon_array[i].explosions = true
 	upgrade_level_increase()
 
+func explosion_size():
+	for i in range(weapon_array.size()):
+		weapon_array[i].explosion_scale += 0.05
+
 func enable_slow():
 	weapon_array[0].slow_enabled = true
 	upgrade_level_increase()
 	
 func enable_pierce():
 	weapon_array[0].pierce_enabled = true
-	weapon_array[0].max_pierces = 1
-	#upgrade_level_increase()
+	weapon_array[0].max_pierces += 1
+	upgrade_level_increase()
 	
 func enable_freeze():
 	weapon_array[0].freeze_enabled = true
-	#upgrade_level_increase()
+	upgrade_level_increase()
+
+func pierce_increase():
+	weapon_array[0].max_pierces += 1
+	upgrade_level_increase()
+	
+func status_rate_up():
+	if weapon_array[0].get_slow_rate() < 100.0:
+		weapon_array[0].slow_chance += 0.05
+	if weapon_array[0].get_freeze_rate() < 100.0:
+		weapon_array[0].freeze_chance += 0.01
 
 func enable_chain_lightning():
 	weapon_array[0].chain_lightning = true
-	#upgrade_level_increase()
-	
-func pierce_increase():
-	weapon_array[0].max_pierces += 1
-	#upgrade_level_increase()
-	
+	upgrade_level_increase()
+
+func chain_rate_up():
+	if weapon_array[0].get_chain_rate() < 99.0:
+		weapon_array[0].chain_rate += 0.05
+
 func upgrade_level_increase():
 	for i in range(weapon_array.size()):
 		weapon_array[i].upgrade_level += 1
