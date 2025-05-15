@@ -8,7 +8,8 @@ var explosion_scale := 1.0
 
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)
-
+	print(damage)
+	
 func _physics_process(delta: float) -> void:
 	const SPEED = 300
 	const RANGE = 600

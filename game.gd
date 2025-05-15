@@ -2,9 +2,9 @@ extends Node2D
 
 #@onready var ice_orb_button = preload("res://orb_spawn.gd")
 @onready var player = get_node("/root/Game/Player")
-@onready var ice_button = $IceOrbSpawn.get_node("Button")
-@onready var fire_button = $FireOrbSpawn.get_node("Button")
-@onready var bolt_button = $BoltOrbSpawn.get_node("Button")
+#@onready var ice_button = $IceOrbSpawn.get_node("Button")
+#@onready var fire_button = $FireOrbSpawn.get_node("Button")
+#@onready var bolt_button = $BoltOrbSpawn.get_node("Button")
 @onready var pause_screen = preload("res://ui/pause_screen.tscn")
 @onready var level_up_screen = preload("res://ui/level_up_screen.tscn")
 @onready var game_over_screen = preload("res://ui/game_over.tscn")
@@ -21,7 +21,7 @@ func _ready() -> void:
 	player.connect("level_up_signal", level_up)
 	player.connect("health_depleted", player_dead)
 	call_deferred("start_game")
-	#%Timer.timeout.connect(_on_timer_timeout)
+	%Timer.timeout.connect(_on_timer_timeout)
 	
 func _process(delta: float) -> void:
 	game_time += delta
@@ -87,12 +87,14 @@ func start_game():
 	var startup = starting_popup.instantiate()
 	add_child(startup)
 	get_tree().paused = true
+	%ZombieSpawner.start_timer()
 
-#func spawn_mob():
-	#var new_mob = preload("res://enemies/zombie.tscn").instantiate()
-	#%PathFollow2D.progress_ratio = randf()
-	#new_mob.global_position = %PathFollow2D.global_position
-	#add_child(new_mob)
-#
-#func _on_timer_timeout():
-	#spawn_mob()
+func _on_timer_timeout():
+	if %TitanSpawner.is_active() == false:
+		%TitanSpawner.start_timer()
+	elif %FleaSpawner.is_active() == false:
+		%FleaSpaner.start_timer()
+	elif %MageSpawner.is_active() == false:
+		%MageSpawner.start_timer()
+	else:
+		pass

@@ -52,6 +52,7 @@ frame_progress = 0.797568
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_8yvla")]
 unique_name_in_owner = true
+max_health = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
@@ -64,6 +65,7 @@ BASE_DAMAGE_RATE = 1.5
 unique_name_in_owner = true
 BASE_SPEED = 80.0
 slowable = true
+freezeable = true
 
 [node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("6_utg2a")]
 collision_layer = 12

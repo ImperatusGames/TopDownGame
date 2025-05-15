@@ -17,3 +17,12 @@ func spawn_enemy():
 	var new_enemy = enemy[count].instantiate()
 	new_enemy.global_position = path.global_position
 	call_deferred("add_child", new_enemy)
+
+func start_timer():
+	%Timer.start()
+
+func is_active():
+	if %Timer.paused == true:
+		return false
+	else:
+		return true
