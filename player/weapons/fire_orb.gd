@@ -24,7 +24,7 @@ func shoot():
 	new_fireball.explosions = explosions
 	new_fireball.explosion_scale = explosion_scale
 	%FireOrbSprite.add_child(new_fireball)
-	AudioManager.play_weapon_sfx("res://audio/Small Fireball Cast A.wav", 0.25)
+	#AudioManager.play_weapon_sfx("res://audio/Small Fireball Cast A.wav", 0.25)
 
 func _on_timer_timeout() -> void:
 	shoot()

@@ -28,7 +28,7 @@ unique_name_in_owner = true
 
 [node name="IceShotTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 1.5
+wait_time = 1.75
 autostart = true
 
 [node name="WeaponComponent" type="Area2D" parent="."]

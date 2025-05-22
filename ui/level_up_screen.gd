@@ -14,11 +14,11 @@ func _ready() -> void:
 	special_button_display()
 
 func speed_up():
-	player.speed_increase(0.05)
+	player.speed_increase(0.10)
 	cleanup()
 
 func health_up():
-	player.health_increase(5)
+	player.health_increase(20)
 	cleanup()
 
 func damage_up():

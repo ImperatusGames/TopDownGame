@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 	if(abs(velocity.x) > 0 or abs(velocity.y) > 0):
 		footstep_timer += delta
 		if footstep_timer >= footstep_interval:
-			AudioManager.play_footstep()
+			#AudioManager.play_footstep()
 			footstep_timer = 0
 
 	var damage_rate: float = 0.0
@@ -53,7 +53,7 @@ func on_experience_gain(experience):
 	get_experience()
 
 func get_experience():
-	if player_xp == xp_to_level:
+	if player_xp >= xp_to_level:
 		level_up()
 	else:
 		print("XP to level: " + str(xp_to_level - player_xp))

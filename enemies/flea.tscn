@@ -52,18 +52,18 @@ frame_progress = 0.797568
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_s7wcd")]
 unique_name_in_owner = true
-max_health = 2
+max_health = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_2jkis")
 
 [node name="DamageComponent" parent="." instance=ExtResource("4_7vtiq")]
-BASE_DAMAGE_RATE = 4.0
+BASE_DAMAGE_RATE = 3.0
 
 [node name="VelocityComponent" parent="." instance=ExtResource("5_cfebp")]
 unique_name_in_owner = true
-BASE_SPEED = 140.0
+BASE_SPEED = 125.0
 slowable = true
 freezeable = true
 

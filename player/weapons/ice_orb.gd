@@ -16,9 +16,17 @@ func _ready():
 
 func _physics_process(_delta: float) -> void:
 	var enemies_in_range = get_overlapping_bodies()
+	#if enemies_in_range.size() > 0:
+	#var target_enemy = enemies_in_range.front()
+	#if target_enemy != null:
+		#look_at(target_enemy.global_position)
 	if enemies_in_range.size() > 0:
+		enemies_in_range.sort_custom(func(a, b):
+			return a.global_position.distance_squared_to(global_position) < b.global_position.distance_squared_to(global_position)
+			)
 		var target_enemy = enemies_in_range.front()
-		look_at(target_enemy.global_position)
+		if target_enemy != null:
+			look_at(target_enemy.global_position)
 
 func _on_iceshottimer_timeout() -> void:
 	shoot()

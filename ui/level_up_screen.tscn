@@ -52,10 +52,10 @@ size_flags_vertical = 3
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Increase HP by 5"
+text = "Increase HP by 20"
 
 [node name="SpeedUp" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Boost Speed by 5%"
+text = "Boost Player Speed by 10%"

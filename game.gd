@@ -91,10 +91,19 @@ func start_game():
 
 func _on_timer_timeout():
 	if %TitanSpawner.is_active() == false:
-		%TitanSpawner.start_timer()
+		%TitanSpawner.start_timer(3.0)
+		print("Titans spawning!")
+		%Timer.wait_time -= 15.0
 	elif %FleaSpawner.is_active() == false:
-		%FleaSpaner.start_timer()
+		%FleaSpawner.start_timer(4.0)
+		print("Fleas spawning!")
 	elif %MageSpawner.is_active() == false:
-		%MageSpawner.start_timer()
+		%MageSpawner.start_timer(2.5)
+		print("Mages spawning!")
+		%Timer.wait_time -= 15.0
 	else:
-		pass
+		%ZombieSpawner.reduce_timer(0.25)
+		%TitanSpawner.reduce_timer(0.25)
+		%FleaSpawner.reduce_timer(0.25)
+		%MageSpawner.reduce_timer(0.25)
+		print("Timers reduced!")

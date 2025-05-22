@@ -78,6 +78,6 @@ shape = SubResource("CircleShape2D_hwv0q")
 
 [node name="DropRateComponent" parent="." instance=ExtResource("7_krjii")]
 unique_name_in_owner = true
-drop_rate = 50.0
+drop_rate = 100.0
 drop_item = ExtResource("8_l1kmi")
 experience = 1

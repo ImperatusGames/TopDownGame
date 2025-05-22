@@ -13,5 +13,5 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("on_experience_gain"):
 		body.on_experience_gain(experience)
 		print("Player gained " + str(experience) + " XP")
-		AudioManager.play_sfx("res://audio/Mobile Buff 003.wav", 0.1)
+		#AudioManager.play_sfx("res://audio/Mobile Buff 003.wav", 0.1)
 		queue_free()

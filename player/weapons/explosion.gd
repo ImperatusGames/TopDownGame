@@ -1,6 +1,7 @@
 extends Area2D
 
 var damage := 1
+var explosion_scale := 1.0
 
 func _ready() -> void:
 	%Timer.timeout.connect(_on_timer_timeout)

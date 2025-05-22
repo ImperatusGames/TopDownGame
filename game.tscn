@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cib2trgltqr2v"]
+[gd_scene load_steps=10 format=3 uid="uid://cib2trgltqr2v"]
 
 [ext_resource type="PackedScene" uid="uid://cs7snk0ujxfjr" path="res://player/player.tscn" id="1_jdka2"]
 [ext_resource type="Script" path="res://game.gd" id="1_qu5d8"]
 [ext_resource type="PackedScene" uid="uid://db44ncf08m8q8" path="res://enemies/zombie.tscn" id="2_841bp"]
-[ext_resource type="PackedScene" uid="uid://cm71qkqjauy36" path="res://assets/xp_coin.tscn" id="3_rsvab"]
 [ext_resource type="PackedScene" uid="uid://bxivxp5tfrojs" path="res://enemies/enemy_spawner.tscn" id="6_hh5lf"]
 [ext_resource type="PackedScene" uid="uid://b6nm2pv4yr43h" path="res://enemies/flea.tscn" id="8_t2dc4"]
 [ext_resource type="PackedScene" uid="uid://cxt4ns1edmwhi" path="res://game_ui.tscn" id="9_1a058"]
@@ -24,28 +23,19 @@ position = Vector2(595, 217)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
-[node name="Zombie" parent="." instance=ExtResource("2_841bp")]
-position = Vector2(206, 421)
-
-[node name="Zombie2" parent="." instance=ExtResource("2_841bp")]
-position = Vector2(241, 465)
-
-[node name="XP Coin" parent="." instance=ExtResource("3_rsvab")]
-position = Vector2(881, 350)
-
-[node name="Path2D" type="Path2D" parent="."]
-position = Vector2(-12.4982, -7.21085)
-scale = Vector2(1.00986, 1.00986)
+[node name="Path2D" type="Path2D" parent="Player/Camera2D"]
+position = Vector2(-303.749, -112.105)
+scale = Vector2(0.50493, 0.50493)
 curve = SubResource("Curve2D_bimy6")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Player/Camera2D/Path2D"]
 unique_name_in_owner = true
 position = Vector2(-88.6276, -88.9121)
 rotation = 0.00292395
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 60.0
+wait_time = 90.0
 autostart = true
 
 [node name="ZombieSpawner" parent="." instance=ExtResource("6_hh5lf")]
@@ -53,9 +43,6 @@ unique_name_in_owner = true
 enemy = Array[PackedScene]([ExtResource("2_841bp")])
 
 [node name="GameUI" parent="." instance=ExtResource("9_1a058")]
-
-[node name="Titan" parent="." instance=ExtResource("10_skql8")]
-position = Vector2(1046, 532)
 
 [node name="TitanSpawner" parent="." instance=ExtResource("6_hh5lf")]
 unique_name_in_owner = true
@@ -65,8 +52,6 @@ enemy = Array[PackedScene]([ExtResource("10_skql8")])
 unique_name_in_owner = true
 enemy = Array[PackedScene]([ExtResource("8_t2dc4")])
 
-[node name="Mage" parent="." instance=ExtResource("9_sdh8v")]
-position = Vector2(785, 616)
-
 [node name="MageSpawner" parent="." instance=ExtResource("6_hh5lf")]
 unique_name_in_owner = true
+enemy = Array[PackedScene]([ExtResource("9_sdh8v")])
