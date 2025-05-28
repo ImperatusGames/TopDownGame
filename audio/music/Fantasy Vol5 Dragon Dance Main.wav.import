@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bhue2rs20tx1p"
+path="res://.godot/imported/Fantasy Vol5 Dragon Dance Main.wav-ebbf97b12eb04dabec0482accc4dddfc.sample"
+
+[deps]
+
+source_file="res://audio/music/Fantasy Vol5 Dragon Dance Main.wav"
+dest_files=["res://.godot/imported/Fantasy Vol5 Dragon Dance Main.wav-ebbf97b12eb04dabec0482accc4dddfc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 	if(abs(velocity.x) > 0 or abs(velocity.y) > 0):
 		footstep_timer += delta
 		if footstep_timer >= footstep_interval:
-			#AudioManager.play_footstep()
+			AudioManager.play_footstep()
 			footstep_timer = 0
 
 	var damage_rate: float = 0.0

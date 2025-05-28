@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bnnqfa5elke0b"
+path="res://.godot/imported/Salamander Main.wav-53b9164c25fe0f08c5410aeb820412ac.sample"
+
+[deps]
+
+source_file="res://audio/music/Salamander Main.wav"
+dest_files=["res://.godot/imported/Salamander Main.wav-53b9164c25fe0f08c5410aeb820412ac.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

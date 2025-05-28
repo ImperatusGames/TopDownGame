@@ -8,6 +8,7 @@ func _ready() -> void:
 	%Settings.pressed.connect(settings)
 	%ExitGame.pressed.connect(exit_game)
 	%DummySprite.play("default")
+	AudioManager.play_music("res://audio/music/Ethereal Epiphone Main.wav")
 
 func settings():
 	visible = false

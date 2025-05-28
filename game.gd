@@ -93,13 +93,16 @@ func _on_timer_timeout():
 	if %TitanSpawner.is_active() == false:
 		%TitanSpawner.start_timer(3.0)
 		print("Titans spawning!")
+		AudioManager.play_music("res://audio/music/Salamander Main.wav")
 		%Timer.wait_time -= 15.0
 	elif %FleaSpawner.is_active() == false:
 		%FleaSpawner.start_timer(4.0)
 		print("Fleas spawning!")
+		AudioManager.play_music("res://audio/music/Fantasy Vol5 Dragon Dance Main.wav")
 	elif %MageSpawner.is_active() == false:
 		%MageSpawner.start_timer(2.5)
 		print("Mages spawning!")
+		AudioManager.play_music("res://audio/music/Ethereal Stairway Main.wav")
 		%Timer.wait_time -= 15.0
 	else:
 		%ZombieSpawner.reduce_timer(0.25)
