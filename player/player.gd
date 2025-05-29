@@ -26,10 +26,13 @@ func _process(delta: float) -> void:
 	
 	footstep_interval = 50 / velocity_component.current_speed
 	if(abs(velocity.x) > 0 or abs(velocity.y) > 0):
+		%Sprite.play("walk")
 		footstep_timer += delta
 		if footstep_timer >= footstep_interval:
 			AudioManager.play_footstep()
 			footstep_timer = 0
+	else:
+		%Sprite.play("idle")
 
 	var damage_rate: float = 0.0
 	var overlapping_enemies = %HurtBoxComponent.get_overlapping_bodies()
@@ -41,7 +44,7 @@ func _process(delta: float) -> void:
 			#print(damage_rate)
 			
 	if overlapping_enemies.size() > 0:
-		#%HealthComponent.current_health -= damage_rate * delta
+		%HealthComponent.current_health -= damage_rate * delta
 		var attack = Attack.new()
 		attack.attack_damage = damage_rate*delta
 		health_component.damage(attack)

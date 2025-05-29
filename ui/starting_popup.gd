@@ -1,8 +1,8 @@
 extends CanvasLayer
 
-signal fire_orb_spawn
-signal ice_orb_spawn
-signal bolt_orb_spawn
+#signal fire_orb_spawn
+#signal ice_orb_spawn
+#signal bolt_orb_spawn
 
 @onready var game = get_node("/root/Game")
 

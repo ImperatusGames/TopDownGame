@@ -10,7 +10,7 @@ func _ready() -> void:
 	%HealthUp.pressed.connect(health_up)
 	%SpeedUp.pressed.connect(speed_up)
 	weapon_type = player.get_weapon_type()
-	var weapon_level = player.get_weapon_level()
+	#var weapon_level = player.get_weapon_level()
 	special_button_display()
 
 func speed_up():

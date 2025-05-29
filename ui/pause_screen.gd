@@ -8,7 +8,7 @@ func _ready() -> void:
 	%Settings.pressed.connect(settings)
 	%EndRun.pressed.connect(end_game)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel") and visible == true:
 		end_pause()
 

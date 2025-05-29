@@ -5,7 +5,7 @@ extends CanvasLayer
 @onready var music_volume_slider = %MusicSlider
 
 func _ready() -> void:
-	%Save.pressed.connect(save_settings)
+	#%Save.pressed.connect(save_settings)
 	%Exit.pressed.connect(exit_settings)
 	%MuteSFXCheckBox.pressed.connect(mute_SFX)
 	# Initialize sliders with current bus volumes
@@ -16,7 +16,7 @@ func _ready() -> void:
 	music_volume_slider.value_changed.connect(_on_music_volume_changed)
 	set_states()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		exit_settings()
 		
@@ -27,8 +27,8 @@ func _on_wep_sfx_volume_changed(value: float):
 func _on_music_volume_changed(value: float):
 	AudioManager.set_music_volume(value)
 
-func save_settings():
-	pass
+#func save_settings():
+	#pass
 
 func exit_settings():
 	get_parent().visible = true

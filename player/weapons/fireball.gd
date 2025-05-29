@@ -1,6 +1,6 @@
 extends Area2D
 
-var travelled_distance := 0
+var travelled_distance := 0.0
 var damage := 1
 var explosions := false
 var explosion_damage := 0

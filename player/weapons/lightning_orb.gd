@@ -47,6 +47,7 @@ func lightning_strike(location : Vector2):
 			if chain_lightning == true:
 				var chain_chance = randi_range(1, 100)
 				if chain_chance <= chain_rate * 100:
+					await get_tree().create_timer(0.1).timeout 
 					lightning_strike(location)
 				else:
 					location = Vector2.ZERO

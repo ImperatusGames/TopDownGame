@@ -1,6 +1,6 @@
 extends Area2D
 
-var travelled_distance := 0
+var travelled_distance := 0.0
 var pierce_enabled := false
 var max_pierces := 0
 var pierce_count := 0

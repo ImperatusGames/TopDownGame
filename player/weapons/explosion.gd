@@ -7,6 +7,8 @@ func _ready() -> void:
 	%Timer.timeout.connect(_on_timer_timeout)
 	%DamageTimer.timeout.connect(_disable_damage_timeout)
 	area_entered.connect(_on_area_entered)
+	scale.x = explosion_scale
+	scale.y = explosion_scale
 
 func _on_timer_timeout():
 	queue_free()

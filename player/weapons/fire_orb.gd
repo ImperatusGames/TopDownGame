@@ -18,8 +18,8 @@ func shoot():
 	var new_fireball = FIREBALL.instantiate()
 	new_fireball.global_position = %FireOrbSprite.global_position
 	new_fireball.global_rotation = %FireOrbSprite.global_rotation
-	new_fireball.collision_layer
-	new_fireball.collision_mask
+	#new_fireball.collision_layer
+	#new_fireball.collision_mask
 	new_fireball.damage += damage
 	new_fireball.explosions = explosions
 	new_fireball.explosion_scale = explosion_scale
