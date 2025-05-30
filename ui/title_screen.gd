@@ -25,5 +25,5 @@ func exit_game():
 	get_tree().quit()
 
 func credits():
-	var credits = credits_screen.instantiate()
-	add_child(credits)
+	var show_credits = credits_screen.instantiate()
+	add_child(show_credits)
