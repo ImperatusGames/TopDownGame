@@ -12,7 +12,11 @@ func _ready() -> void:
 	location = Vector2.ZERO
 
 func _on_timer_timeout():
-	lightning_strike(location)
+	var overlapping_check = get_overlapping_bodies()
+	if overlapping_check.size() > 0:
+		AudioManager.play_weapon_sfx("res://audio/electric_lightning_blast_02.wav", 0.25)
+		lightning_strike(location)
+	
 	
 func lightning_strike(location : Vector2):
 	var overlapping_enemies = get_overlapping_bodies()

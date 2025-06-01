@@ -44,7 +44,7 @@ func play_weapon_sfx(path: String, pitch_variation: float = 0.0):
 	weapon_sfx_player.stream = weapon_sfx
 	if pitch_variation > 0:
 		weapon_sfx_player.pitch_scale = randf_range(1.0 - pitch_variation, 1.0 + pitch_variation)
-	weapon_sfx_player.volume_db = -19.5
+	weapon_sfx_player.volume_db = -21.0
 	weapon_sfx_player.play()
 	
 func play_sfx(path: String, pitch_variation: float = 0.0):

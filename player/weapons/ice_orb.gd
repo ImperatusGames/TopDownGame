@@ -46,6 +46,7 @@ func shoot():
 	ice_bullet.slow_chance = slow_chance
 	ice_bullet.freeze_chance = freeze_chance
 	%ShootingPoint.add_child(ice_bullet)
+	AudioManager.play_weapon_sfx("res://audio/ice_blast_projectile_spell_02.wav", 0.25)
 	## Need to connect all of the variables to the newly spawned shot
 
 func is_type(type): return type == "IceOrb" or is_type(type)
