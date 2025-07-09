@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://b6nm2pv4yr43h"]
 
-[ext_resource type="Script" path="res://enemies/flea.gd" id="1_4jyjs"]
+[ext_resource type="Script" uid="uid://6a4kxb4ncfb2" path="res://enemies/flea.gd" id="1_4jyjs"]
 [ext_resource type="Texture2D" uid="uid://bhocepugo503t" path="res://assets/Prototype_Character.png" id="2_r6yf4"]
 [ext_resource type="PackedScene" uid="uid://wf6bff4qnd3a" path="res://components/health_component.tscn" id="3_s7wcd"]
 [ext_resource type="PackedScene" uid="uid://dmc68k0gaovro" path="res://components/damage_component.tscn" id="4_7vtiq"]

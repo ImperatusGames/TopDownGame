@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cib2trgltqr2v"]
 
 [ext_resource type="PackedScene" uid="uid://cs7snk0ujxfjr" path="res://player/player.tscn" id="1_jdka2"]
-[ext_resource type="Script" path="res://game.gd" id="1_qu5d8"]
+[ext_resource type="Script" uid="uid://db8dul20yyq0l" path="res://game.gd" id="1_qu5d8"]
 [ext_resource type="PackedScene" uid="uid://db44ncf08m8q8" path="res://enemies/zombie.tscn" id="2_841bp"]
 [ext_resource type="PackedScene" uid="uid://bxivxp5tfrojs" path="res://enemies/enemy_spawner.tscn" id="6_hh5lf"]
 [ext_resource type="PackedScene" uid="uid://b6nm2pv4yr43h" path="res://enemies/flea.tscn" id="8_t2dc4"]

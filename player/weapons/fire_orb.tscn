@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cc7ijf3m2tx01"]
 
 [ext_resource type="Texture2D" uid="uid://df0orqwrq6bsk" path="res://assets/coin_single.png" id="1_32cyv"]
-[ext_resource type="Script" path="res://player/weapons/fire_orb.gd" id="1_bpap3"]
+[ext_resource type="Script" uid="uid://dtur8w1duvckc" path="res://player/weapons/fire_orb.gd" id="1_bpap3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7el5h"]
 radius = 39.0

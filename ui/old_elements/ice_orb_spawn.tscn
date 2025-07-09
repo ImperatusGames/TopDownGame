@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bpukm82q4ktld"]
 
 [ext_resource type="Texture2D" uid="uid://df0orqwrq6bsk" path="res://assets/coin_single.png" id="1_6hdxr"]
-[ext_resource type="Script" path="res://ui/old_elements/ice_orb_spawn.gd" id="1_ovep8"]
+[ext_resource type="Script" uid="uid://7qy704k3l13j" path="res://ui/old_elements/ice_orb_spawn.gd" id="1_ovep8"]
 
 [node name="IceOrbSpawn" type="VBoxContainer"]
 offset_right = 191.0

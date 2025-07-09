@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bhocepugo503t" path="res://assets/Prototype_Character.png" id="1_8jpns"]
 [ext_resource type="PackedScene" uid="uid://wf6bff4qnd3a" path="res://components/health_component.tscn" id="1_8yvla"]
-[ext_resource type="Script" path="res://enemies/zombie.gd" id="1_iref2"]
+[ext_resource type="Script" uid="uid://s0de8jkn8tmr" path="res://enemies/zombie.gd" id="1_iref2"]
 [ext_resource type="PackedScene" uid="uid://dmc68k0gaovro" path="res://components/damage_component.tscn" id="4_dv18j"]
 [ext_resource type="PackedScene" uid="uid://d1bym2dtxelqs" path="res://components/velocity_component.tscn" id="5_vuyby"]
 [ext_resource type="PackedScene" uid="uid://bbkhvvg2yjkrj" path="res://components/hurt_box_component.tscn" id="6_utg2a"]

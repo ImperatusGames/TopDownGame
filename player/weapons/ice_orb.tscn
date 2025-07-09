@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://c0vq2vophksr5"]
 
-[ext_resource type="Script" path="res://player/weapons/ice_orb.gd" id="1_poisi"]
+[ext_resource type="Script" uid="uid://bn2kuw20iix6p" path="res://player/weapons/ice_orb.gd" id="1_poisi"]
 [ext_resource type="Texture2D" uid="uid://df0orqwrq6bsk" path="res://assets/coin_single.png" id="1_px8eg"]
-[ext_resource type="Script" path="res://weapon_component.gd" id="3_rdrkf"]
+[ext_resource type="Script" uid="uid://bmy3pc8ogf3dt" path="res://weapon_component.gd" id="3_rdrkf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_twyev"]
 radius = 75.0267

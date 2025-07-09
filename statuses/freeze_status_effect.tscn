@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ctjaf7y6tfc6q"]
 
-[ext_resource type="Script" path="res://statuses/freeze_status_effect.gd" id="1_nxiqf"]
+[ext_resource type="Script" uid="uid://bmf851jwlxay7" path="res://statuses/freeze_status_effect.gd" id="1_nxiqf"]
 
 [node name="FreezeStatusEffect" type="Node2D"]
 scale = Vector2(0.15, 0.15)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bbsx82s1f0i2l"]
 
-[ext_resource type="Script" path="res://player/weapons/fireball.gd" id="1_dxmhq"]
+[ext_resource type="Script" uid="uid://df1hakhqhrlij" path="res://player/weapons/fireball.gd" id="1_dxmhq"]
 [ext_resource type="Texture2D" uid="uid://cp6gi6r4yrvmd" path="res://icon.svg" id="2_vlb2s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7l6hj"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ctysrjog3j508"]
 
-[ext_resource type="Script" path="res://ui/credits.gd" id="1_kbxpj"]
+[ext_resource type="Script" uid="uid://cjkowm5s4cwvi" path="res://ui/credits.gd" id="1_kbxpj"]
 
 [sub_resource type="Theme" id="Theme_lmx0j"]
 

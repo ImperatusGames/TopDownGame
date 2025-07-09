@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bktbb4jeiowmg"]
 
-[ext_resource type="Script" path="res://ui/starting_popup.gd" id="1_4my4i"]
+[ext_resource type="Script" uid="uid://b325sglx47185" path="res://ui/starting_popup.gd" id="1_4my4i"]
 
 [node name="Starting Popup" type="CanvasLayer"]
 process_mode = 3
